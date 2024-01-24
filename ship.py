@@ -7,6 +7,7 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         self.image = pygame.image.load('images/spaceship.bmp')
+        self.image = pygame.transform.rotozoom(self.image, 0, 0.5)
 
         self.rect = self.image.get_rect()
 
@@ -20,13 +21,13 @@ class Ship:
         self.moving_down = False
     
     def update(self):
-        if self.moving_right and self.rect.right < self.screen_rect.right + 50:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed 
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.ship_speed
-        if self.moving_down and self.rect.bottom < self.screen_rect.bottom + 75:
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.ship_speed
         
         self.rect.x = self.x
@@ -34,4 +35,4 @@ class Ship:
 
 
     def blitme(self):
-        self.screen.blit(pygame.transform.rotozoom(self.image, 0, 0.5), self.rect)
+        self.screen.blit(self.image, self.rect)
