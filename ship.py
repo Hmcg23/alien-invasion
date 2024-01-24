@@ -9,7 +9,7 @@ class Ship:
         self.image = pygame.image.load('images/spaceship.bmp')
         self.rect = self.image.get_rect()
 
-        self.rect.midleft = self.screen_rect.midleft
+        self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
 
         self.moving_right = False
@@ -23,9 +23,9 @@ class Ship:
         if self.moving_left and self.rect.left > 0:
             self.rect.x -= self.settings.ship_speed 
         if self.moving_up:
-            self.rect.y += self.settings.ship_speed
-        if self.moving_down:
             self.rect.y -= self.settings.ship_speed
+        if self.moving_down:
+            self.rect.y += self.settings.ship_speed
         
         self.rect.x = self.x
 
