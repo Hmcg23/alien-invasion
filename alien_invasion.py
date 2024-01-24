@@ -5,18 +5,26 @@ import pygame
 from settings import Settings
 from ship import Ship
 
+# 238 - 246
+# ~ p. 241
 
 class AlienInvasion:
     def __init__(self):
         # Game resources
         pygame.init()
-        self.clock = pygame.time.Clock()
-        self.settings = Settings()
-
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
+        self.settings = Settings()
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.clock = pygame.time.Clock()
 
-        self.ship = Ship(self)
+        self.ship = Ship(self)   
+
+    def _update_screen(self):
+        # Redraw the screen
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+        # Display the most recent screen
+        pygame.display.flip()    
 
     def run_game(self):
         # Main loop
@@ -42,16 +50,7 @@ class AlienInvasion:
                 elif event.key == pygame.K_LEFT:
                     self.ship.moving_left = False
 
-
-    def _update_screen(self):
-        # Redraw the screen
-        self.screen.fill(self.settings.bg_color)
-        self.ship.blitme()
-        # Display the most recent screen
-        pygame.display.flip()        
-
-
 if __name__ == '__main__':
-    # Make and run game instance
+    # Make a game instance, and run the game.
     ai = AlienInvasion()
     ai.run_game()
