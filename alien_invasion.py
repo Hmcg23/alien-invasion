@@ -5,9 +5,6 @@ import pygame
 from settings import Settings
 from ship import Ship
 
-# 238 - 246
-# ~ p. 241
-
 class AlienInvasion:
     def __init__(self):
         # Game resources
