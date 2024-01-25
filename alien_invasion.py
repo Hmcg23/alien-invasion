@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 class AlienInvasion:
     def __init__(self):
@@ -13,11 +14,12 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_width = self.screen.get_rect().width
-        self.settings.screen_height = self.screen.get_rect().height
+        self.screen = pygame.display.set_mode((1200, 800), )
+        # self.settings.screen_width = self.screen.get_rect().width
+        # self.settings.screen_height = self.screen.get_rect().height
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
     def run_game(self):
         # Main loop
@@ -25,8 +27,13 @@ class AlienInvasion:
             for event in pygame.event.get():
                 self._check_events(event)
             self.ship.update()
+            self.bullets.update()
             self._update_screen()
             self.clock.tick(60)
+
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
             
     def _check_events(self, event):
         # Watch for keyboard events
@@ -48,6 +55,8 @@ class AlienInvasion:
             self.ship.moving_down = True
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -58,14 +67,19 @@ class AlienInvasion:
             self.ship.moving_up = False
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
-
+    
+    def _fire_bullet(self):
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
 
     def _update_screen(self):
         # Redraw the screen
         self.screen.fill(self.settings.bg_color)
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
         self.ship.blitme()
         # Display the most recent screen
-        pygame.display.flip()    
+        pygame.display.flip()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
