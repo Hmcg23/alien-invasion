@@ -6,8 +6,8 @@ class Button:
         self.screen_rect = self.screen.get_rect()
 
         self.width, self.height = 200, 50
-        self.button_color(250, 250, 250)
-        self.text_color(0, 0, 0)
+        self.button_color = (250, 250, 250)
+        self.text_color =  (0, 0, 0)
         self.font = pygame.font.SysFont('Poppins', 48)
 
         self.rect = pygame.Rect(0, 0, self.width, self.height)
@@ -22,4 +22,4 @@ class Button:
     
     def draw_button(self):
         self.screen.fill(self.button_color, self.rect)
-        self.screen.blit(self.msg_iamge, self.msg_image_rect)
+        self.screen.blit(self.msg_image, self.msg_image_rect)
