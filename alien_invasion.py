@@ -7,7 +7,7 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 
-# 263-266
+# 266-270
 
 class AlienInvasion:
     def __init__(self):
@@ -81,6 +81,13 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+        
+        # collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
+
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
     
     def _create_fleet(self):
         alien = Alien(self)

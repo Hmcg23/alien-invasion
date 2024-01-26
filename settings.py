@@ -5,10 +5,10 @@ class Settings:
         self.bg_color = (50, 10, 77)
         self.ship_speed = 5.0
 
-        self.bullet_speed = 2.0
+        self.bullet_speed = 3.0
         self.bullet_width = 3
-        self.bullet_height = 15
-        self.bullet_color = (250, 250, 250) #(43, 175, 227)
+        self.bullet_height = 20
+        self.bullet_color = (200, 200, 200) #(43, 175, 227)
         self.bullets_allowed = 10
 
         self.alien_speed = 1.0
