@@ -51,10 +51,17 @@ class AlienInvasion:
         # Watch for keyboard events
         if event.type == pygame.QUIT:
             sys.exit()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            self._check_play_button(mouse_pos)
         elif event.type == pygame.KEYDOWN:
             self._check_keydown_events(event)
         elif event.type == pygame.KEYUP:
             self._check_keyup_events(event)
+    
+    def _check_play_button(self, mouse_pos):
+        if self.play_button.rect.collidepoint(mouse_pos):
+            self.game_active = True
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
