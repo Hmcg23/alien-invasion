@@ -7,7 +7,7 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 
-# 266-270
+# 270-274
 
 class AlienInvasion:
     def __init__(self):
@@ -115,6 +115,9 @@ class AlienInvasion:
     def _update_aliens(self):
         self._check_fleet_edges()
         self.aliens.update()
+
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print("Ship hit!")
     
     def _check_fleet_edges(self):
         for alien in self.aliens.sprites():
