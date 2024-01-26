@@ -6,6 +6,8 @@ from settings import Settings
 from ship import Ship
 from bullet import Bullet
 
+# 255 - 262
+
 class AlienInvasion:
     def __init__(self):
         # Game resources
