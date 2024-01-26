@@ -10,8 +10,6 @@ from ship import Ship
 from bullet import Bullet
 from alien import Alien
 
-# 270-274
-
 class AlienInvasion:
     def __init__(self):
         # Game resources
@@ -21,8 +19,6 @@ class AlienInvasion:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((1200, 800), )
-        # self.settings.screen_width = self.screen.get_rect().width
-        # self.settings.screen_height = self.screen.get_rect().height
 
         self.stats = GameStats(self)
 
