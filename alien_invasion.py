@@ -18,7 +18,7 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((1200, 800), )
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
 
         self.stats = GameStats(self)
 
@@ -29,7 +29,10 @@ class AlienInvasion:
         self._create_fleet()
         self.game_active = False
 
-        self.play_button = Button(self, "Play")
+        self.play_button = Button(self, "Play", 250)
+        self.easy_button = Button(self, "Easy", 350)
+        self.medium_button = Button(self, "Medium", 450)
+        self.hard_button = Button(self, "Hard", 550)
 
     def run_game(self):
         # Main loop
@@ -165,6 +168,9 @@ class AlienInvasion:
         self.aliens.draw(self.screen)
         if not self.game_active:
             self.play_button.draw_button()
+            self.easy_button.draw_button()
+            self.medium_button.draw_button()
+            self.hard_button.draw_button()
         # Display the most recent screen
         pygame.display.flip()
     
