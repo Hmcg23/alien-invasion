@@ -34,6 +34,9 @@ class AlienInvasion:
         self.medium_button = Button(self, "Medium", 450)
         self.hard_button = Button(self, "Hard", 550)
 
+        self.easy_button.button_color = (0, 0, 0)
+        self.easy_button.text_color = (250, 250, 250)
+
     def run_game(self):
         # Main loop
         while True:
@@ -53,16 +56,17 @@ class AlienInvasion:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
             self._check_play_button(mouse_pos)
+            self._check_difficulty_buttons(mouse_pos)
         elif event.type == pygame.KEYDOWN:
             self._check_keydown_events(event)
         elif event.type == pygame.KEYUP:
             self._check_keyup_events(event)
     
     def _check_play_button(self, mouse_pos):
-        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        play_button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if not self.game_active:
-            if button_clicked:
-                self.settings.initialize_dynamic_settings()
+            if play_button_clicked:
+                # self.settings.initialize_dynamic_settings()
 
                 self.stats.reset_stats()
                 self.game_active = True
@@ -73,6 +77,49 @@ class AlienInvasion:
                 self.ship.center_ship()
 
                 pygame.mouse.set_visible(False)
+    
+    def _check_difficulty_buttons(self, mouse_pos):
+        easy_button_clicked = self.easy_button.rect.collidepoint(mouse_pos)
+        medium_button_clicked = self.medium_button.rect.collidepoint(mouse_pos)
+        hard_button_clicked = self.hard_button.rect.collidepoint(mouse_pos)
+        if not self.game_active:
+            if easy_button_clicked:
+                self.settings.initialize_dynamic_settings(5.0, 1.0, 1.0)
+
+                # Set Colors
+                self.easy_button.button_color = (0, 0, 0)
+                self.easy_button.text_color = (250, 250, 250)
+
+                self.medium_button.button_color = (250, 250, 250)
+                self.medium_button.text_color = (0, 0, 0)
+
+                self.hard_button.button_color = (250, 250, 250)
+                self.hard_button.text_color = (0, 0, 0)
+            elif medium_button_clicked:
+                self.settings.initialize_dynamic_settings(5.0, 1.0, 3.0)
+
+                # Set Colors
+                self.easy_button.button_color = (250, 250, 250)
+                self.easy_button.text_color = (0, 0, 0)
+
+                self.medium_button.button_color = (0, 0, 0)
+                self.medium_button.text_color = (250, 250, 250)
+
+                self.hard_button.button_color = (250, 250, 250)
+                self.hard_button.text_color = (0, 0, 0)
+            elif hard_button_clicked:
+                self.settings.initialize_dynamic_settings(10.0, 1.0, 10.0)
+
+                # Set Colors
+                self.easy_button.button_color = (250, 250, 250)
+                self.easy_button.text_color = (0, 0, 0)
+
+                self.medium_button.button_color = (250, 250, 250)
+                self.medium_button.text_color = (0, 0, 0)
+
+                self.hard_button.button_color = (0, 0, 0)
+                self.hard_button.text_color = (250, 250, 250)
+
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
