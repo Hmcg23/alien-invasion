@@ -78,47 +78,54 @@ class AlienInvasion:
 
                 pygame.mouse.set_visible(False)
     
+    def _set_button_colors(self, difficulty_button, text_color, button_color):
+        
+        if difficulty_button == 'easy':
+            self.easy_button.button_color = button_color
+            self.easy_button.text_color = text_color
+
+            self.medium_button.button_color = text_color
+            self.medium_button.text_color = button_color
+
+            self.hard_button.button_color = text_color
+            self.hard_button.text_color = button_color
+        elif difficulty_button == 'medium':
+            self.easy_button.button_color = text_color
+            self.easy_button.text_color = button_color
+
+            self.medium_button.button_color = button_color
+            self.medium_button.text_color = text_color
+
+            self.hard_button.button_color = text_color
+            self.hard_button.text_color = button_color
+        elif difficulty_button == 'hard':
+                self.easy_button.button_color = text_color
+                self.easy_button.text_color = button_color
+
+                self.medium_button.button_color = text_color
+                self.medium_button.text_color = button_color
+
+                self.hard_button.button_color = button_color
+                self.hard_button.text_color = text_color
+
     def _check_difficulty_buttons(self, mouse_pos):
         easy_button_clicked = self.easy_button.rect.collidepoint(mouse_pos)
         medium_button_clicked = self.medium_button.rect.collidepoint(mouse_pos)
         hard_button_clicked = self.hard_button.rect.collidepoint(mouse_pos)
+        
         if not self.game_active:
             if easy_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 1.0, 1.0)
 
-                # Set Colors
-                self.easy_button.button_color = (0, 0, 0)
-                self.easy_button.text_color = (250, 250, 250)
-
-                self.medium_button.button_color = (250, 250, 250)
-                self.medium_button.text_color = (0, 0, 0)
-
-                self.hard_button.button_color = (250, 250, 250)
-                self.hard_button.text_color = (0, 0, 0)
+                self._set_button_colors('easy', (250, 250, 250), (0, 0, 0))
             elif medium_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 1.0, 3.0)
 
-                # Set Colors
-                self.easy_button.button_color = (250, 250, 250)
-                self.easy_button.text_color = (0, 0, 0)
-
-                self.medium_button.button_color = (0, 0, 0)
-                self.medium_button.text_color = (250, 250, 250)
-
-                self.hard_button.button_color = (250, 250, 250)
-                self.hard_button.text_color = (0, 0, 0)
+                self._set_button_colors('medium', (250, 250, 250), (0, 0, 0))
             elif hard_button_clicked:
                 self.settings.initialize_dynamic_settings(10.0, 1.0, 10.0)
 
-                # Set Colors
-                self.easy_button.button_color = (250, 250, 250)
-                self.easy_button.text_color = (0, 0, 0)
-
-                self.medium_button.button_color = (250, 250, 250)
-                self.medium_button.text_color = (0, 0, 0)
-
-                self.hard_button.button_color = (0, 0, 0)
-                self.hard_button.text_color = (250, 250, 250)
+                self._set_button_colors('hard', (250, 250, 250), (0, 0, 0))
 
 
     def _check_keydown_events(self, event):
