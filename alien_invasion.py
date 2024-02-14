@@ -1,5 +1,7 @@
 import sys
 from time import sleep
+import json
+from pathlib import Path
 
 import pygame
 
@@ -55,7 +57,7 @@ class AlienInvasion:
     def _check_events(self, event):
         # Watch for keyboard events
         if event.type == pygame.QUIT:
-            sys.exit()
+            self._close_game()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
             self._check_play_button(mouse_pos)
@@ -154,7 +156,7 @@ class AlienInvasion:
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = True
         elif event.key == pygame.K_q:
-            sys.exit()
+            self._close_game()
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
@@ -279,6 +281,14 @@ class AlienInvasion:
             if alien.rect.bottom >= self.settings.screen_height:
                 self._ship_hit()
                 break
+    
+    def _close_game(self):
+        saved_high_score = self.stats.get_high_score()
+        if self.stats.high_score > saved_high_score:
+            path = Path('high_score.json')
+            path.write_text(json.dumps(self.stats.high_score))
+        
+        sys.exit()
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
