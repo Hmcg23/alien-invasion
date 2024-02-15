@@ -44,7 +44,7 @@ class AlienInvasion:
         self.hard_button = Button(self, "Hard", 550)
 
         self.easy_button.button_color = (0, 0, 0)
-        self.easy_button.text_color = (29, 194, 73)
+        self.easy_button.text_color = (0,200,200)
         self.easy_button._prep_msg("Easy")
 
     def run_game(self):

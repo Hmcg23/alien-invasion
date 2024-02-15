@@ -6,7 +6,7 @@ class Button:
         self.screen_rect = self.screen.get_rect()
 
         self.width, self.height = 200, 50
-        self.button_color = (29, 194, 73)
+        self.button_color = (0,200,200)
         self.text_color =  (0, 0, 0)
         self.font = pygame.font.SysFont(None, 36)
 
