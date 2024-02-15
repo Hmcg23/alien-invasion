@@ -12,6 +12,7 @@ from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
+from background import Background
 
 class AlienInvasion:
     def __init__(self):
@@ -29,6 +30,10 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
+
+        self.background_images = pygame.sprite.Group()
+        self.background = Background(self)
+        self.background_images.add(self.background)
 
         self._create_fleet()
         self.game_active = False
@@ -51,6 +56,10 @@ class AlienInvasion:
                 self.ship.update()
                 self._update_bullets()
                 self._update_aliens()
+
+            self.background_images.draw(self.screen)
+            self.background_images.update()
+
             self._update_screen()
             self.clock.tick(60)
             
@@ -87,7 +96,6 @@ class AlienInvasion:
                 pygame.mouse.set_visible(False)
     
     def _set_button_colors(self, difficulty_button, text_color, button_color):
-        
         if difficulty_button == 'easy':
             self.easy_button.button_color = button_color
             self.easy_button.text_color = text_color
@@ -245,12 +253,12 @@ class AlienInvasion:
 
     def _update_screen(self):
         # Redraw the screen
-        self.screen.fill(self.settings.bg_color)
+        # self.screen.fill(self.settings.bg_color)
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
-
+        
         # Draw score info
         self.sb.show_score()
         if not self.game_active:
