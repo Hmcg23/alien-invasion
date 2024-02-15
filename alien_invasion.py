@@ -143,15 +143,15 @@ class AlienInvasion:
             if easy_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 1.0)
 
-                self._set_button_colors('easy', (29, 194, 73), (0, 0, 0))
+                self._set_button_colors('easy', (0,200,200), (0, 0, 0))
             elif medium_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 2.0)
 
-                self._set_button_colors('medium', (29, 194, 73), (0, 0, 0))
+                self._set_button_colors('medium', (0,200,200), (0, 0, 0))
             elif hard_button_clicked:
                 self.settings.initialize_dynamic_settings(10.0, 10.0, 3.0)
 
-                self._set_button_colors('hard', (29, 194, 73), (0, 0, 0))
+                self._set_button_colors('hard', (0,200,200), (0, 0, 0))
 
 
     def _check_keydown_events(self, event):

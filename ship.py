@@ -14,7 +14,8 @@ class Ship(Sprite):
 
         self.rect = self.image.get_rect()
 
-        self.rect.midbottom = self.screen_rect.midbottom
+        self.rect.centerx = self.screen_rect.centerx
+        self.rect.y = 735
         self.x = float(self.rect.x)
         self.y= float(self.rect.y)
 
@@ -39,7 +40,7 @@ class Ship(Sprite):
     def center_ship(self):
         self.rect.midbottom = self.screen_rect.midbottom
         self.x = float(self.rect.x)
-        self.y = float(self.rect.y)
+        self.y = float(self.rect.y - 10)
 
 
     def blitme(self):

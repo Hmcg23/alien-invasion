@@ -11,7 +11,7 @@ class Settings:
         self.bullet_speed = 3.0
         self.bullet_width = 4
         self.bullet_height = 25
-        self.bullet_color = (29, 194, 73) #(230, 230, 230) #(43, 175, 227)
+        self.bullet_color = (0,200,200) #(29, 194, 73) #(230, 230, 230) #(43, 175, 227)
         self.bullets_allowed = 10
 
         self.alien_speed = 1.0
