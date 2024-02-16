@@ -9,7 +9,7 @@ class Button:
         self.button_color = (0,200,200)
         self.text_color =  (0, 0, 0)
 
-        self.font = pygame.font.Font("pixel.ttf", 32)
+        self.font = pygame.font.Font("fonts/pixel.ttf", 32)
 
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         

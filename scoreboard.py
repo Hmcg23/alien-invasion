@@ -12,7 +12,7 @@ class Scoreboard:
         self.stats = ai_game.stats
 
         self.text_color = (255, 255, 255)
-        self.font = pygame.font.Font("pixel.ttf", 32)
+        self.font = pygame.font.Font("fonts/pixel.ttf", 32)
 
         self.prep_score()
         self.prep_high_score()
