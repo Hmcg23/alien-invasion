@@ -1,7 +1,7 @@
 import pygame.font
-from pygame.sprite import Group
+from pygame.sprite import Group, Sprite
 
-from ship import Ship
+from heart import Heart
 
 class Scoreboard:
     def __init__(self, ai_game):
@@ -32,7 +32,7 @@ class Scoreboard:
         self.screen.blit(self.score_image, self.score_rect)
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
-        self.ships.draw(self.screen)
+        self.hearts.draw(self.screen)
 
     def prep_high_score(self):
         high_score = round(self.stats.high_score, -1)
@@ -59,9 +59,9 @@ class Scoreboard:
         self.level_rect.top = self.score_rect.bottom + 10
     
     def prep_ships(self):
-        self.ships = Group()
+        self.hearts = Group()
         for ship_number in range(self.stats.ships_left):
-            ship = Ship(self.ai_game)
-            ship.rect.x = 10 + ship_number * ship.rect.width
-            ship.rect.y = 10
-            self.ships.add(ship)
+            heart = Heart(self.ai_game)
+            heart.rect.x = 10 + ship_number * heart.rect.width
+            heart.rect.y = 10
+            self.hearts.add(heart)

@@ -15,7 +15,6 @@ class GameStats:
         self.level = 1
     
     def get_high_score(self):
-        """Gets high score from file, if it exists."""
         path = Path('high_score.json')
         try:
             contents = path.read_text()
