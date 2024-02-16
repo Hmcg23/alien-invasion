@@ -10,7 +10,7 @@ from pygame import mixer
 from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard
-from button import Button
+from button import Button, Overlay
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -33,6 +33,7 @@ class AlienInvasion:
 
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
+        
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
@@ -45,14 +46,15 @@ class AlienInvasion:
         self._create_fleet()
         self.game_active = False
 
-        self.play_button = Button(self, "Play", 250)
-        self.easy_button = Button(self, "Easy", 350)
-        self.medium_button = Button(self, "Medium", 450)
-        self.hard_button = Button(self, "Hard", 550)
+        self.play_button = Button(self, "Play", 500, 360)
+        self.play_button.text_color = (0, 255, 255)
+        self.play_button._prep_msg("Play")
 
-        self.easy_button.button_color = (0, 0, 0)
-        self.easy_button.text_color = (0,200,200)
-        self.easy_button._prep_msg("Easy")
+        self.easy_button = Button(self, "Easy", 250, 435)
+        self.medium_button = Button(self, "Medium", 500, 435)
+        self.hard_button = Button(self, "Hard", 750, 435)
+        
+        self.overlay = Overlay(self)
 
     def run_game(self):
         # Main loop
@@ -87,8 +89,6 @@ class AlienInvasion:
         play_button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if not self.game_active:
             if play_button_clicked:
-                # self.settings.initialize_dynamic_settings()
-
                 self.stats.reset_stats()
                 self.sb.prep_score()
                 self.sb.prep_level()
@@ -102,44 +102,34 @@ class AlienInvasion:
 
                 pygame.mouse.set_visible(False)
     
-    def _set_button_colors(self, difficulty_button, text_color, button_color):
+    def _set_button_colors(self, difficulty_button, color_1, color_2):
         if difficulty_button == 'easy':
-            self.easy_button.button_color = button_color
-            self.easy_button.text_color = text_color
+            self.easy_button.text_color = color_1
             self.easy_button._prep_msg("Easy")
 
-            self.medium_button.button_color = text_color
-            self.medium_button.text_color = button_color
+            self.medium_button.text_color = color_2
             self.medium_button._prep_msg("Medium")
 
-            self.hard_button.button_color = text_color
-            self.hard_button.text_color = button_color
+            self.hard_button.text_color = color_2
             self.hard_button._prep_msg("Hard")
         elif difficulty_button == 'medium':
-            self.easy_button.button_color = text_color
-            self.easy_button.text_color = button_color
+            self.easy_button.text_color = color_2
             self.easy_button._prep_msg("Easy")
 
-            self.medium_button.button_color = button_color
-            self.medium_button.text_color = text_color
+            self.medium_button.text_color = color_1
             self.medium_button._prep_msg("Medium")
 
-
-            self.hard_button.button_color = text_color
-            self.hard_button.text_color = button_color
+            self.hard_button.text_color = color_2
             self.hard_button._prep_msg("Hard")
         elif difficulty_button == 'hard':
-                self.easy_button.button_color = text_color
-                self.easy_button.text_color = button_color
-                self.easy_button._prep_msg("Easy")
+            self.easy_button.text_color = color_2
+            self.easy_button._prep_msg("Easy")
 
-                self.medium_button.button_color = text_color
-                self.medium_button.text_color = button_color
-                self.medium_button._prep_msg("Medium")
+            self.medium_button.text_color = color_2
+            self.medium_button._prep_msg("Medium")
 
-                self.hard_button.button_color = button_color
-                self.hard_button.text_color = text_color
-                self.hard_button._prep_msg("Hard")
+            self.hard_button.text_color = color_1
+            self.hard_button._prep_msg("Hard")
 
     def _check_difficulty_buttons(self, mouse_pos):
         easy_button_clicked = self.easy_button.rect.collidepoint(mouse_pos)
@@ -150,20 +140,19 @@ class AlienInvasion:
             if easy_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 1.0)
 
-                self._set_button_colors('easy', (0,200,200), (0, 0, 0))
+                self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 2.0)
 
-                self._set_button_colors('medium', (0,200,200), (0, 0, 0))
+                self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 self.settings.initialize_dynamic_settings(10.0, 10.0, 3.0)
 
-                self._set_button_colors('hard', (0,200,200), (0, 0, 0))
-
+                self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
+            self.ship.moving_right = True 
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
         elif event.key == pygame.K_UP:
@@ -273,10 +262,14 @@ class AlienInvasion:
         # Draw score info
         self.sb.show_score()
         if not self.game_active:
-            self.play_button.draw_button()
-            self.easy_button.draw_button()
-            self.medium_button.draw_button()
-            self.hard_button.draw_button()
+            self.overlay.draw_overlay(self.screen)
+
+            self.play_button.draw_button(self.screen, (255,20,147))
+            self.easy_button.draw_button(self.screen, (0, 255, 255))
+            self.medium_button.draw_button(self.screen, (0, 255, 255))
+            self.hard_button.draw_button(self.screen, (0, 255, 255))
+            
+            
         # Display the most recent screen
         pygame.display.flip()
     
