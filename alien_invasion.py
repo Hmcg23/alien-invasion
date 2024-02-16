@@ -255,7 +255,7 @@ class AlienInvasion:
         # Redraw the screen
         # self.screen.fill(self.settings.bg_color)
         for bullet in self.bullets.sprites():
-            bullet.draw_bullet()
+            bullet.draw_bullet(self.screen)
         self.ship.blitme()
         self.aliens.draw(self.screen)
         

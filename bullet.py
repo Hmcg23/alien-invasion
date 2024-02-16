@@ -1,6 +1,8 @@
 import pygame
 from pygame.sprite import Sprite
 
+from ship import Ship
+
 class Bullet(Sprite):
     def __init__(self, ai_game):
         super().__init__()
@@ -12,10 +14,18 @@ class Bullet(Sprite):
         self.rect.midtop = ai_game.ship.rect.midtop
 
         self.y = float(self.rect.y)
+        self.angle = float(0)
+
+        self.ship = Ship
 
     def update(self):
         self.y -= self.settings.bullet_speed
         self.rect.y = self.y
     
-    def draw_bullet(self):
-        pygame.draw.rect(self.screen, self.color, self.rect)
+    # def draw_bullet(self):
+    #     pygame.draw.rect(self.screen, self.color, self.rect)
+
+    def draw_bullet(self, surface):
+        bullet_surface = pygame.Surface(pygame.Rect(self.rect).size)
+        pygame.draw.rect(bullet_surface, self.color, bullet_surface.get_rect())
+        surface.blit(bullet_surface, self.rect)
