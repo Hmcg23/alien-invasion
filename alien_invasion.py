@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 
 import pygame
+from pygame import mixer
+
 
 from settings import Settings
 from game_stats import GameStats
@@ -20,6 +22,11 @@ class AlienInvasion:
         pygame.init()
         pygame.display.set_caption("Alien Invasion")
         self.clock = pygame.time.Clock()
+        
+        mixer.init()
+        mixer.music.load('sounds/Space - Magic Fly ( 8-bit Sounds ).mp3')
+        mixer.music.play()
+
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
@@ -167,6 +174,10 @@ class AlienInvasion:
             self._close_game()
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
+        elif event.key == pygame.K_m:
+            mixer.music.pause()
+        elif event.key == pygame.K_p:
+            mixer.music.unpause()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
