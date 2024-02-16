@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pygame
 from pygame import mixer
+import sounds
 
 
 from settings import Settings
@@ -23,9 +24,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
         self.clock = pygame.time.Clock()
         
-        mixer.init()
-        mixer.music.load('sounds/Space - Magic Fly ( 8-bit Sounds ).mp3')
-        mixer.music.play()
+        sounds.soundtrack.play()
 
         self.settings = Settings()
 
@@ -89,6 +88,7 @@ class AlienInvasion:
         play_button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if not self.game_active:
             if play_button_clicked:
+                sounds.game_start.play()
                 self.stats.reset_stats()
                 self.sb.prep_score()
                 self.sb.prep_level()
@@ -101,6 +101,7 @@ class AlienInvasion:
                 self.ship.center_ship()
 
                 pygame.mouse.set_visible(False)
+
     
     def _set_button_colors(self, difficulty_button, color_1, color_2):
         if difficulty_button == 'easy':
@@ -139,15 +140,15 @@ class AlienInvasion:
         if not self.game_active:
             if easy_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 1.0)
-
+                sounds.blip_select.play()
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 self.settings.initialize_dynamic_settings(5.0, 10.0, 2.0)
-
+                sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 self.settings.initialize_dynamic_settings(10.0, 10.0, 3.0)
-
+                sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 
     def _check_keydown_events(self, event):
@@ -164,9 +165,9 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif event.key == pygame.K_m:
-            mixer.music.pause()
+            sounds.soundtrack.pause()
         elif event.key == pygame.K_p:
-            mixer.music.unpause()
+            sounds.soundtrack.unpause()
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
@@ -182,6 +183,9 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            if self.game_active:
+                sounds.shoot.set_volume(0.1)
+                sounds.shoot.play()
     
     def _update_bullets(self):
         self.bullets.update()
@@ -196,6 +200,8 @@ class AlienInvasion:
 
         if collisions:
             for aliens in collisions.values():
+                sounds.explosion.set_volume(0.2)
+                sounds.explosion.play()
                 self.stats.score += self.settings.alien_points * len(aliens)
             self.sb.prep_score()
             self.sb.check_high_score()
@@ -275,6 +281,8 @@ class AlienInvasion:
     
     def _ship_hit(self):
         if self.stats.ships_left > 0:
+            sounds.ship_hit.set_volume(0.5)
+            sounds.ship_hit.play()
             self.stats.ships_left -= 1
             self.sb.prep_ships()
             self.bullets.empty()
@@ -283,8 +291,9 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
-            sleep(0.5)
+            sleep(0.2)
         else:
+            sounds.death_sound.play()
             self.game_active = False
             pygame.mouse.set_visible(True)
     

@@ -31,10 +31,10 @@ class Ship(Sprite):
     
     def update(self):
         if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.rotate(-20)
+            self.rotate(-40)
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
-            self.rotate(20)
+            self.rotate(40)
             self.x -= self.settings.ship_speed 
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.ship_speed
@@ -43,11 +43,12 @@ class Ship(Sprite):
         
         self.rect.x = self.x
         self.rect.y = self.y
+        self.rotate(0)
     
     def rotate(self, angle):
         self.image = pygame.transform.rotozoom(self.original_image, self.angle, 0.5)
         if int(self.angle) != angle:
-            self.angle += ((angle - self.angle) / 20)
+            self.angle += ((angle - self.angle) / 10)
         else:
             self.angle = angle
         x, y = self.rect.center
