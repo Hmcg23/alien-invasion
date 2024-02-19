@@ -55,6 +55,9 @@ class AlienInvasion:
         
         self.overlay = Overlay(self)
 
+        self.easy_button.text_color = (255, 105, 180)
+        self.easy_button._prep_msg("Easy")
+
     def run_game(self):
         # Main loop
         while True:
@@ -139,15 +142,15 @@ class AlienInvasion:
         
         if not self.game_active:
             if easy_button_clicked:
-                self.settings.initialize_dynamic_settings(5.0, 10.0, 1.0)
+                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0)
                 sounds.blip_select.play()
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
-                self.settings.initialize_dynamic_settings(5.0, 10.0, 2.0)
+                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0)
                 sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
-                self.settings.initialize_dynamic_settings(10.0, 10.0, 3.0)
+                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0)
                 sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 

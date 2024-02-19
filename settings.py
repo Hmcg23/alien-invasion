@@ -3,7 +3,7 @@ class Settings:
         self.screen_width = 1200
         self.screen_height = 820
         self.bg_color = (50, 10, 77)
-        self.ship_speed = 5.0
+        self.ship_speed = 0.3
         self.ship_limit = 3
 
         self.bullet_speed = 3.0
@@ -21,7 +21,7 @@ class Settings:
 
         self.initialize_dynamic_settings()
     
-    def initialize_dynamic_settings(self, ship_speed = 5.0, bullet_speed = 10.0, alien_speed = 1.0):
+    def initialize_dynamic_settings(self, ship_speed = 0.3, bullet_speed = 10.0, alien_speed = 1.0):
 
         self.ship_speed = ship_speed
         self.bullet_speed = bullet_speed
