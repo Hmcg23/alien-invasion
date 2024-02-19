@@ -1,31 +1,34 @@
+import math
 import pygame
 from pygame.sprite import Sprite
 
-from ship import Ship
-
 class Bullet(Sprite):
-    def __init__(self, ai_game):
+    def __init__(self, ai_game, x, y, angle):
         super().__init__()
         self.screen = ai_game.screen
         self.settings = ai_game.settings
-        self.color = self.settings.bullet_color
 
-        self.rect = pygame.Rect(0, 0, self.settings.bullet_width, self.settings.bullet_height)
-        self.rect.midtop = ai_game.ship.rect.midtop
+        self.original_bullet = pygame.image.load('images/bullet.bmp').convert()
+        self.bullet = pygame.image.load('images/bullet.bmp')
+        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1)
+        self.rect = self.bullet.get_rect()
 
-        self.y = float(self.rect.y)
-        self.angle = float(0)
-
-        self.ship = Ship
-
+        self.x = x
+        self.y = y
+        self.angle = angle - 90
+        self.speed = self.settings.bullet_speed
+        self.x_vel = (math.cos(self.angle * (2 * math.pi/360)) * self.speed) * 2
+        self.y_vel = (math.sin(self.angle * (2 * math.pi/360)) * self.speed)
+        
+    # Edited the bullet movement based on the ship direction
     def update(self):
-        self.y -= self.settings.bullet_speed
-        self.rect.y = self.y
-    
-    # def draw_bullet(self):
-    #     pygame.draw.rect(self.screen, self.color, self.rect)
+        self.x -= self.x_vel
+        self.y += self.y_vel
 
-    def draw_bullet(self, surface):
-        bullet_surface = pygame.Surface(pygame.Rect(self.rect).size)
-        pygame.draw.rect(bullet_surface, self.color, bullet_surface.get_rect())
-        surface.blit(bullet_surface, self.rect)
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.y)    
+        
+        self.bullet = pygame.transform.rotozoom(self.original_bullet, (self.angle + 180)*1.1, 1)
+    
+    def blitme(self): # change name to blitme
+        self.screen.blit(self.bullet, self.rect)

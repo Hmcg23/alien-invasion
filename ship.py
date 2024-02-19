@@ -1,8 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
 
-vec = pygame.math.Vector2
-
 class Ship(Sprite):
     def __init__(self, ai_game):
         super().__init__()

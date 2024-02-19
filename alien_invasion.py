@@ -29,6 +29,7 @@ class AlienInvasion:
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen_rect = self.screen.get_rect()
 
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
@@ -184,7 +185,7 @@ class AlienInvasion:
     
     def _fire_bullet(self):
         if len(self.bullets) < self.settings.bullets_allowed:
-            new_bullet = Bullet(self)
+            new_bullet = Bullet(self, self.ship.x + 25, self.ship.y + 10, self.ship.angle)
             self.bullets.add(new_bullet)
             if self.game_active:
                 sounds.shoot.set_volume(0.1)
@@ -193,7 +194,7 @@ class AlienInvasion:
     def _update_bullets(self):
         self.bullets.update()
         for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
+            if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
                 self.bullets.remove(bullet)
         
         self._check_bullet_alien_collisions()
@@ -264,7 +265,7 @@ class AlienInvasion:
         # Redraw the screen
         # self.screen.fill(self.settings.bg_color)
         for bullet in self.bullets.sprites():
-            bullet.draw_bullet(self.screen)
+            bullet.blitme()
         self.ship.blitme()
         self.aliens.draw(self.screen)
         
