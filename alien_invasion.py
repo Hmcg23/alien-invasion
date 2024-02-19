@@ -96,7 +96,7 @@ class AlienInvasion:
                 self.stats.reset_stats()
                 self.sb.prep_score()
                 self.sb.prep_level()
-                self.sb.prep_ships()
+                self.sb.prep_lives()
                 self.game_active = True
 
                 self.bullets.empty()
@@ -213,11 +213,14 @@ class AlienInvasion:
 
         if not self.aliens:
             # delete aliens and make a new group
+            sounds.level_up.play()
             self.bullets.empty()
+            self.ship.center_ship()
             self._create_fleet()
             self.settings.increase_speed()
 
             # increase level
+            
             self.stats.level += 1
             self.sb.prep_level()
     
@@ -288,7 +291,7 @@ class AlienInvasion:
             sounds.ship_hit.set_volume(0.5)
             sounds.ship_hit.play()
             self.stats.ships_left -= 1
-            self.sb.prep_ships()
+            self.sb.prep_lives()
             self.bullets.empty()
             self.aliens.empty()
 

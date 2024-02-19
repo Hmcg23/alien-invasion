@@ -17,7 +17,7 @@ class Scoreboard:
         self.prep_score()
         self.prep_high_score()
         self.prep_level()
-        self.prep_ships()
+        self.prep_lives()
 
     def prep_score(self):
         rounded_score = round(self.stats.score, -1)
@@ -58,7 +58,7 @@ class Scoreboard:
         self.level_rect.right = self.score_rect.right
         self.level_rect.top = self.score_rect.bottom + 10
     
-    def prep_ships(self):
+    def prep_lives(self):
         self.hearts = Group()
         for ship_number in range(self.stats.ships_left):
             heart = Heart(self.ai_game)

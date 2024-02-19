@@ -29,6 +29,7 @@ class Ship(Sprite):
         self.moving_down = False
 
         self.angle = float(0)
+        self.angle_vel = 0
     
     def update(self):
         # Left and Right Movement
