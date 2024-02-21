@@ -11,7 +11,8 @@ from game_stats import GameStats
 from scoreboard import Scoreboard
 from button import Button, Overlay
 from ship import Ship
-from bullet import Bullet, Alien_Bullet
+from bullet import Bullet
+from alien_bullet import Alien_Bullet
 from alien import Alien
 from background import Background
 
@@ -25,7 +26,7 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         
         # Play the game soundtrack
-        # sounds.soundtrack.play(100)
+        sounds.soundtrack.play(100)
 
         # Initialize game settings
         self.settings = Settings()
@@ -238,6 +239,9 @@ class AlienInvasion:
             if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom:
                 self.alien_bullets.remove(alien_bullet)
         
+        if random.randrange(0, 50) == 1:
+            self._fire_alien_bullet(self.alien_bullets)
+        
         self._check_alien_ship_collisions()
 
     def _update_bullets(self):
@@ -344,8 +348,6 @@ class AlienInvasion:
 
         self.ship.blitme()
         self.aliens.draw(self.screen)
-        if random.randrange(0, 50) == 1:
-            self._fire_alien_bullet(self.alien_bullets)
         
         # Draw score info
         self.sb.show_score()
