@@ -87,6 +87,9 @@ class Ship(Sprite):
             self.angle = angle
         x, y = self.rect.center
         self.rect.center = (x, y)
+    
+    def get_pos(self):
+        return (self.x, self.y)
 
     def center_ship(self):
         """Center the ship on the screen."""

@@ -1,6 +1,8 @@
-import math
+import math, random
 import pygame
 from pygame.sprite import Sprite
+
+from ship import Ship
 
 class Bullet(Sprite):
     def __init__(self, ai_game, x, y, angle):
@@ -35,6 +37,51 @@ class Bullet(Sprite):
         
         # Rotate the bullet based on its angle
         self.bullet = pygame.transform.rotozoom(self.original_bullet, (self.angle + 180)*1.1, 1)
+    
+    def blitme(self):
+        """Draw the bullet on the screen."""
+        # Blit the bullet onto the screen at its current position
+        self.screen.blit(self.bullet, self.rect)
+
+class Alien_Bullet(Sprite):
+    def __init__(self, ai_game, aliens):
+        """Initialize the bullet."""
+        super().__init__()
+        self.screen = ai_game.screen
+        self.settings = ai_game.settings
+
+        # Load and transform bullet image
+        self.original_bullet = pygame.image.load('images/alien-bullet.bmp').convert()
+        self.bullet = pygame.image.load('images/alien-bullet.bmp')
+        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1)
+        self.rect = self.bullet.get_rect()
+
+        self.ship = Ship(self)
+
+        enemies = []
+        
+        for alien in aliens:
+            enemies.append(alien)
+            alien = random.choice(enemies)
+            self.rect.centerx = alien.rect.centerx
+            self.rect.bottom = alien.rect.bottom
+
+        self.x = self.rect.x
+        self.y = self.rect.y
+
+
+        self.alien_ship_dist = math.dist((self.x, self.y), (self.ship.rect.x, self.ship.rect.y))
+
+    
+    def update(self):
+
+        # Move the bullet based on its velocity
+        self.x += 0
+        self.y += self.settings.alien_bullet_speed
+
+        # Update the bullet's rect position
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.y)    
     
     def blitme(self):
         """Draw the bullet on the screen."""

@@ -1,4 +1,4 @@
-import sys
+import sys, random, time
 from time import sleep
 import json
 from pathlib import Path
@@ -11,7 +11,7 @@ from game_stats import GameStats
 from scoreboard import Scoreboard
 from button import Button, Overlay
 from ship import Ship
-from bullet import Bullet
+from bullet import Bullet, Alien_Bullet
 from alien import Alien
 from background import Background
 
@@ -42,6 +42,7 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
+        self.alien_bullets = pygame.sprite.Group()
 
         # Create background images and add the background
         self.background_images = pygame.sprite.Group()
@@ -77,6 +78,7 @@ class AlienInvasion:
             if self.game_active:
                 self.ship.update()
                 self._update_bullets()
+                self._update_alien_bullets()
                 self._update_aliens()
 
             # Draw background images
@@ -117,6 +119,7 @@ class AlienInvasion:
 
                 # Empty bullets and aliens, create new fleet, center ship
                 self.bullets.empty()
+                self.alien_bullets.empty()
                 self.aliens.empty()
                 self._create_fleet()
                 self.ship.center_ship()
@@ -166,17 +169,17 @@ class AlienInvasion:
         if not self.game_active:
             if easy_button_clicked:
                 # Set settings for easy difficulty
-                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0)
+                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 5)
                 sounds.blip_select.play()
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 # Set settings for medium difficulty
-                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0)
+                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 7)
                 sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 # Set settings for hard difficulty
-                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0)
+                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 10)
                 sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 
@@ -222,6 +225,18 @@ class AlienInvasion:
                 sounds.shoot.set_volume(0.1)
                 sounds.shoot.play()
     
+    def _fire_alien_bullet(self, enemy_bullets):
+        if len(enemy_bullets) < self.settings.enemy_bullets_allowed:
+            new_alien_bullet = Alien_Bullet(self, self.aliens)
+            self.alien_bullets.add(new_alien_bullet)
+
+    def _update_alien_bullets(self):
+        self.alien_bullets.update()
+
+        for alien_bullet in self.alien_bullets.copy():
+            if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom:
+                self.alien_bullets.remove(alien_bullet)
+
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
         # Update bullet positions
@@ -251,6 +266,7 @@ class AlienInvasion:
             # If all aliens destroyed, start a new level
             sounds.level_up.play()
             self.bullets.empty()
+            self.alien_bullets.empty()
             self.ship.center_ship()
             self._create_fleet()
             self.settings.increase_speed()
@@ -315,8 +331,14 @@ class AlienInvasion:
         # Redraw the screen during each pass through the loop
         for bullet in self.bullets.sprites():
             bullet.blitme()
+        
+        for alien_bullet in self.alien_bullets.sprites():
+            alien_bullet.blitme()
+
         self.ship.blitme()
         self.aliens.draw(self.screen)
+        if random.randrange(0, 30) == 1:
+            self._fire_alien_bullet(self.alien_bullets)
         
         # Draw score info
         self.sb.show_score()
@@ -343,6 +365,7 @@ class AlienInvasion:
             self.sb.prep_lives()
             # Empty the list of aliens and bullets
             self.bullets.empty()
+            self.alien_bullets.empty()
             self.aliens.empty()
 
             # Create a new fleet and center the ship
@@ -351,7 +374,10 @@ class AlienInvasion:
 
             sleep(0.2)
         else:
-            # End the game if no ships left
+            # Reset ship velocity and end the game if no ships left
+            self.ship.x_vel = 0
+            self.ship.y_vel = 0
+
             sounds.death_sound.play()
             self.game_active = False
             pygame.mouse.set_visible(True)

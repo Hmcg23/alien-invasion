@@ -21,6 +21,8 @@ class Settings:
         self.alien_speed = 1.0
         self.fleet_drop_speed = 10
         self.fleet_direction = 1
+        self.enemy_bullets_allowed = 10
+        self.alien_bullet_speed = 5
 
         # Speed settings
         self.speedup_scale = 1.1
@@ -28,12 +30,13 @@ class Settings:
         
         self.initialize_dynamic_settings()
 
-    def initialize_dynamic_settings(self, ship_speed=0.3, bullet_speed=10.0, alien_speed=1.0):
+    def initialize_dynamic_settings(self, ship_speed=0.3, bullet_speed=10.0, alien_speed=1.0, alien_bullet_speed = 5):
         """Initialize settings that change throughout the game."""
         # Initialize ship, bullet, and alien speeds
         self.ship_speed = ship_speed
         self.bullet_speed = bullet_speed
         self.alien_speed = alien_speed
+        self.alien_bullet_speed = alien_bullet_speed
 
         # Reset fleet direction to default
         self.fleet_direction = 1
@@ -46,6 +49,7 @@ class Settings:
         self.ship_speed *= self.speedup_scale
         self.bullet_speed *= self.speedup_scale
         self.alien_speed *= self.speedup_scale
+        self.alien_bullet_speed *= self.speedup_scale
 
         # Increase alien point value
         self.alien_points = int(self.alien_points * self.score_scale)
