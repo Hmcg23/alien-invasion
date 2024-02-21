@@ -75,6 +75,11 @@ class AlienInvasion:
         self.easy_button.text_color = (255, 105, 180)
         self.easy_button._prep_msg("Easy")
 
+            # Initialize variables for aliens update pause
+        self.aliens_update_paused = False
+        self.aliens_update_pause_start_time = 0  # Initialized to 0
+
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -129,15 +134,6 @@ class AlienInvasion:
 
         for powerup in self.powerups.copy():
             if powerup.rect.bottom >= self.screen_rect.bottom:
-                self.powerups.remove(powerup)
-
-        self._check_ship_powerup_collisions()
-    
-    def _check_ship_powerup_collisions(self):
-        if pygame.sprite.spritecollideany(self.ship, self.powerups):
-            sounds.power_up.set_volume(0.5)
-            sounds.power_up.play()
-            for powerup in self.powerups.copy():
                 self.powerups.remove(powerup)
 
     def _check_play_button(self, mouse_pos):
@@ -352,8 +348,28 @@ class AlienInvasion:
     
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet."""
-        self._check_fleet_edges()
-        self.aliens.update()
+        if pygame.sprite.spritecollideany(self.ship, self.powerups):
+            sounds.power_up.set_volume(0.5)
+            sounds.power_up.play()
+            for powerup in self.powerups.copy():
+                # Delete the powerup if collided
+                powerup.powerups = 0
+
+                self.powerups.remove(powerup)
+            # If ship collides with a powerup, stop updating aliens for 5 seconds
+            self.aliens_update_paused = True
+            
+            self.aliens_update_pause_start_time = pygame.time.get_ticks()
+        # print(self.aliens_update_paused)
+        if not self.aliens_update_paused:
+            self._check_fleet_edges()
+            self.aliens.update()
+        
+        if self.aliens_update_paused:
+            current_time = pygame.time.get_ticks()
+            if current_time - self.aliens_update_pause_start_time >= 5000:  # 5000 milliseconds = 5 seconds
+                self.aliens_update_paused = False
+        # print(self.aliens_update_paused)
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):

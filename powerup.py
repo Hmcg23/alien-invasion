@@ -24,7 +24,7 @@ class Powerup(Sprite):
         self.angle = float(0)
 
         # self.powerups = [i for i in range(0, 10)]
-        self.powerups = [0]
+        self.powerups = 0
         
     def update(self):
         """Update the bullet's position."""
