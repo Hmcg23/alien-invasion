@@ -16,7 +16,7 @@ class Powerup(Sprite):
         self.rect = self.image.get_rect()
 
         # Set initial position, angle, and speed of the image
-        self.x = random.randint(10, self.settings.screen_width)
+        self.x = random.randint(10, self.settings.screen_width - 10)
         self.y = 0
 
         self.rect.x = int(self.x)    

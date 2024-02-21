@@ -75,9 +75,14 @@ class AlienInvasion:
         self.easy_button.text_color = (255, 105, 180)
         self.easy_button._prep_msg("Easy")
 
-            # Initialize variables for aliens update pause
+        # Initialize variables for Powerups
+        self.pick_powerup = 0
+
         self.aliens_update_paused = False
-        self.aliens_update_pause_start_time = 0  # Initialized to 0
+        self.powerup_start_time = 0
+
+        self.double_shoot = False
+        self.double_shoot_time = 0
 
 
     def run_game(self):
@@ -104,7 +109,9 @@ class AlienInvasion:
             self._update_screen()
             # Control frame rate
             self.clock.tick(60)
-            
+
+# ----CHECK EVENTS---- #
+                        
     def _check_events(self, event):
         """Respond to keyboard and mouse events."""
         if event.type == pygame.QUIT:
@@ -118,24 +125,40 @@ class AlienInvasion:
         elif event.type == pygame.KEYUP:
             self._check_keyup_events(event)
     
-    def _activate_powerup(self):
-        current_time = pygame.time.get_ticks()
-        # Check if it's time to activate a powerup
-        if current_time - self.last_powerup_time >= self.next_powerup_time:
-            new_powerup = Powerup(self)
-            self.powerups.add(new_powerup)
+    def _check_keydown_events(self, event):
+        """Respond to keypresses."""
+        # Check for keydown events
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True 
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+        elif event.key == pygame.K_UP:
+            self.ship.moving_up = True
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = True
+        elif event.key == pygame.K_q:
+            self._close_game()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
+        elif event.key == pygame.K_m:
+            sounds.soundtrack.set_volume(0)
+        elif event.key == pygame.K_p:
+            sounds.soundtrack.set_volume(100)
 
-            # Reset the timer for the next powerup
-            self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(5000, 10000)  # Random time between 5 and 10 seconds in milliseconds
+    def _check_keyup_events(self, event):
+        """Respond to key releases."""
+        # Check for keyup events
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
+        if event.key == pygame.K_UP:
+            self.ship.moving_up = False
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = False
 
-    def _update_powerup(self):
-        self.powerups.update()
-
-        for powerup in self.powerups.copy():
-            if powerup.rect.bottom >= self.screen_rect.bottom:
-                self.powerups.remove(powerup)
-
+# ----BUTTONS---- #
+    
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play."""
         # Check if play button is clicked
@@ -207,57 +230,101 @@ class AlienInvasion:
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 # Set settings for medium difficulty
-                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 5)
+                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 4)
                 sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 # Set settings for hard difficulty
-                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 7)
+                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 5)
                 sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 
-    def _check_keydown_events(self, event):
-        """Respond to keypresses."""
-        # Check for keydown events
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True 
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
-        elif event.key == pygame.K_UP:
-            self.ship.moving_up = True
-        elif event.key == pygame.K_DOWN:
-            self.ship.moving_down = True
-        elif event.key == pygame.K_q:
-            self._close_game()
-        elif event.key == pygame.K_SPACE:
-            self._fire_bullet()
-        elif event.key == pygame.K_m:
-            sounds.soundtrack.set_volume(0)
-        elif event.key == pygame.K_p:
-            sounds.soundtrack.set_volume(100)
+# ----POWERUPS---- #
+    
+    def _activate_powerup(self):
+        current_time = pygame.time.get_ticks()
+        # Check if it's time to activate a powerup
+        if current_time - self.last_powerup_time >= self.next_powerup_time:
+            new_powerup = Powerup(self)
+            self.powerups.add(new_powerup)
 
-    def _check_keyup_events(self, event):
-        """Respond to key releases."""
-        # Check for keyup events
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = False
-        if event.key == pygame.K_UP:
-            self.ship.moving_up = False
-        elif event.key == pygame.K_DOWN:
-            self.ship.moving_down = False
+            # Reset the timer for the next powerup
+            self.last_powerup_time = current_time
+            self.next_powerup_time = random.randint(5000, 10000)  # Random time between 5 and 10 seconds in milliseconds
+
+            self._check_powerup_collisions()
+
+    def _update_powerup(self):
+        self.powerups.update()
+
+        for powerup in self.powerups.copy():
+            if powerup.rect.bottom >= self.screen_rect.bottom:
+                self.powerups.remove(powerup)
+        
+        self._check_powerup_collisions()
+    
+    def _check_powerup_collisions(self):
+        if pygame.sprite.spritecollideany(self.ship, self.powerups):
+            self.pick_powerup = random.randint(1, 3)
+
+# ----SHIP---- #
+    
+    def _ship_hit(self):
+        """Respond to the ship being hit by an alien."""
+        if self.stats.ships_left > 0:
+            sounds.ship_hit.set_volume(0.5)
+            sounds.ship_hit.play()
+            # Decrement ships_left and update scoreboard
+            self.stats.ships_left -= 1
+            self.sb.prep_lives()
+            # Empty the list of aliens and bullets
+            self.bullets.empty()
+            self.alien_bullets.empty()
+            self.aliens.empty()
+
+            # Create a new fleet and center the ship
+            self._create_fleet()
+            self.ship.center_ship()
+
+            sleep(0.2)
+        else:
+            # Reset ship velocity and end the game if no ships left
+            self.ship.x_vel = 0
+            self.ship.y_vel = 0
+
+            sounds.death_sound.play()
+            self.game_active = False
+            pygame.mouse.set_visible(True)
+
+# ----SHIP BULLETS---- #
     
     def _fire_bullet(self):
         """Fire a bullet if limit not reached yet."""
         # Fire a bullet if limit not reached
         if len(self.bullets) < self.settings.bullets_allowed:
-            new_bullet = Bullet(self, self.ship.x + 25, self.ship.y + 10, self.ship.angle)
+            new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
             self.bullets.add(new_bullet)
+
+            new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
+            self.bullets.add(new_bullet)
+
             if self.game_active:
                 sounds.shoot.set_volume(0.1)
                 sounds.shoot.play()
-    
+
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        # Update bullet positions
+        self.bullets.update()
+        # Get rid of bullets that have disappeared
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
+                self.bullets.remove(bullet)
+        
+        self._check_bullet_alien_collisions()
+
+# ----ALIEN BULLETS---- #
+
     def _fire_alien_bullet(self, enemy_bullets):
         if len(enemy_bullets) < self.settings.enemy_bullets_allowed:
             new_alien_bullet = Alien_Bullet(self, self.aliens, self.ship.angle)
@@ -276,49 +343,36 @@ class AlienInvasion:
         
         self._check_alien_ship_collisions()
 
-    def _update_bullets(self):
-        """Update position of bullets and get rid of old bullets."""
-        # Update bullet positions
-        self.bullets.update()
-        # Get rid of bullets that have disappeared
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
-                self.bullets.remove(bullet)
-        
-        self._check_bullet_alien_collisions()
-
-    def _check_alien_ship_collisions(self):
-        if pygame.sprite.spritecollideany(self.ship, self.alien_bullets):
-            self._ship_hit()
-    
     def _check_bullet_alien_collisions(self):
-        """Respond to bullet-alien collisions."""
-        # Check for any bullets that have hit aliens
-        collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
-        pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
+            """Respond to bullet-alien collisions."""
+            # Check for any bullets that have hit aliens
+            collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+            pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
 
-        if collisions:
-            for aliens in collisions.values():
-                sounds.explosion.set_volume(0.2)
-                sounds.explosion.play()
-                # Increase score for each alien hit
-                self.stats.score += self.settings.alien_points * len(aliens)
-            self.sb.prep_score()
-            self.sb.check_high_score()
+            if collisions:
+                for aliens in collisions.values():
+                    sounds.explosion.set_volume(0.2)
+                    sounds.explosion.play()
+                    # Increase score for each alien hit
+                    self.stats.score += self.settings.alien_points * len(aliens)
+                self.sb.prep_score()
+                self.sb.check_high_score()
 
-        if not self.aliens:
-            # If all aliens destroyed, start a new level
-            sounds.level_up.play()
-            self.bullets.empty()
-            self.alien_bullets.empty()
-            self.ship.center_ship()
-            self._create_fleet()
-            self.settings.increase_speed()
+            if not self.aliens:
+                # If all aliens destroyed, start a new level
+                sounds.level_up.play()
+                self.bullets.empty()
+                self.alien_bullets.empty()
+                self.ship.center_ship()
+                self._create_fleet()
+                self.settings.increase_speed()
 
-            # Increase level
-            self.stats.level += 1
-            self.sb.prep_level()
-    
+                # Increase level
+                self.stats.level += 1
+                self.sb.prep_level()
+                
+# ----ALIENS---- #
+      
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row
@@ -359,17 +413,16 @@ class AlienInvasion:
             # If ship collides with a powerup, stop updating aliens for 5 seconds
             self.aliens_update_paused = True
             
-            self.aliens_update_pause_start_time = pygame.time.get_ticks()
-        # print(self.aliens_update_paused)
+            self.powerup_start_time = pygame.time.get_ticks()
+
         if not self.aliens_update_paused:
             self._check_fleet_edges()
             self.aliens.update()
         
         if self.aliens_update_paused:
             current_time = pygame.time.get_ticks()
-            if current_time - self.aliens_update_pause_start_time >= 5000:  # 5000 milliseconds = 5 seconds
+            if current_time - self.powerup_start_time >= 3000:  # 3000 milliseconds = 5 seconds
                 self.aliens_update_paused = False
-        # print(self.aliens_update_paused)
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
@@ -389,6 +442,20 @@ class AlienInvasion:
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
+    
+    def _check_alien_ship_collisions(self):
+        if pygame.sprite.spritecollideany(self.ship, self.alien_bullets):
+            self._ship_hit()
+    
+    def _check_aliens_bottom(self):
+            """Check if any aliens have reached the bottom of the screen."""
+            for alien in self.aliens.sprites():
+                # Check if the bottom of the alien's rectangle reaches the bottom of the screen
+                if alien.rect.bottom >= self.settings.screen_height:
+                    self._ship_hit()
+                    break
+
+# ----SCREEN---- #
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
@@ -419,41 +486,8 @@ class AlienInvasion:
             
         # Display the most recent screen
         pygame.display.flip()
-    
-    def _ship_hit(self):
-        """Respond to the ship being hit by an alien."""
-        if self.stats.ships_left > 0:
-            sounds.ship_hit.set_volume(0.5)
-            sounds.ship_hit.play()
-            # Decrement ships_left and update scoreboard
-            self.stats.ships_left -= 1
-            self.sb.prep_lives()
-            # Empty the list of aliens and bullets
-            self.bullets.empty()
-            self.alien_bullets.empty()
-            self.aliens.empty()
 
-            # Create a new fleet and center the ship
-            self._create_fleet()
-            self.ship.center_ship()
-
-            sleep(0.2)
-        else:
-            # Reset ship velocity and end the game if no ships left
-            self.ship.x_vel = 0
-            self.ship.y_vel = 0
-
-            sounds.death_sound.play()
-            self.game_active = False
-            pygame.mouse.set_visible(True)
-    
-    def _check_aliens_bottom(self):
-        """Check if any aliens have reached the bottom of the screen."""
-        for alien in self.aliens.sprites():
-            # Check if the bottom of the alien's rectangle reaches the bottom of the screen
-            if alien.rect.bottom >= self.settings.screen_height:
-                self._ship_hit()
-                break
+# ----CLOSE GAME---- #
 
     def _close_game(self):
         """Close the game and save high score if it's greater than the saved one."""

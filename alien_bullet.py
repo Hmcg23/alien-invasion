@@ -14,7 +14,7 @@ class Alien_Bullet(Sprite):
         # Load and transform bullet image
         self.original_bullet = pygame.image.load('images/alien-bullet.bmp').convert()
         self.bullet = pygame.image.load('images/alien-bullet.bmp')
-        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1)
+        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1.5)
         self.rect = self.bullet.get_rect()
 
         self.ship = Ship(self)
@@ -45,7 +45,7 @@ class Alien_Bullet(Sprite):
         self.rect.y = int(self.y)    
         
         # Rotate the bullet based on its angle
-        self.bullet = pygame.transform.rotozoom(self.original_bullet, (abs(self.x)/2 + 90) % 180, 1)
+        self.bullet = pygame.transform.rotozoom(self.original_bullet, (abs(self.x)/2 + 90) % 180, 1.5)
     
     def blitme(self):
         """Draw the bullet on the screen."""
