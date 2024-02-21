@@ -15,6 +15,7 @@ from bullet import Bullet
 from alien_bullet import Alien_Bullet
 from alien import Alien
 from background import Background
+from powerup import Powerup
 
 class AlienInvasion:
     def __init__(self):
@@ -44,6 +45,7 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
         self.alien_bullets = pygame.sprite.Group()
+        self.powerups = pygame.sprite.Group()
 
         # Create background images and add the background
         self.background_images = pygame.sprite.Group()
@@ -65,6 +67,10 @@ class AlienInvasion:
         # Create overlay for non-active game state
         self.overlay = Overlay(self)
 
+        # Set intervals for when a powerup activates
+        self.last_powerup_time = pygame.time.get_ticks()
+        self.next_powerup_time = random.randint(1000, 10000)
+
         # Set colors and text for difficulty buttons
         self.easy_button.text_color = (255, 105, 180)
         self.easy_button._prep_msg("Easy")
@@ -81,6 +87,9 @@ class AlienInvasion:
                 self._update_bullets()
                 self._update_alien_bullets()
                 self._update_aliens()
+
+                self._activate_powerup()
+                self._update_powerup()
 
             # Draw background images
             self.background_images.draw(self.screen)
@@ -104,6 +113,33 @@ class AlienInvasion:
         elif event.type == pygame.KEYUP:
             self._check_keyup_events(event)
     
+    def _activate_powerup(self):
+        current_time = pygame.time.get_ticks()
+        # Check if it's time to activate a powerup
+        if current_time - self.last_powerup_time >= self.next_powerup_time:
+            new_powerup = Powerup(self)
+            self.powerups.add(new_powerup)
+
+            # Reset the timer for the next powerup
+            self.last_powerup_time = current_time
+            self.next_powerup_time = random.randint(5000, 10000)  # Random time between 5 and 10 seconds in milliseconds
+
+    def _update_powerup(self):
+        self.powerups.update()
+
+        for powerup in self.powerups.copy():
+            if powerup.rect.bottom >= self.screen_rect.bottom:
+                self.powerups.remove(powerup)
+
+        self._check_ship_powerup_collisions()
+    
+    def _check_ship_powerup_collisions(self):
+        if pygame.sprite.spritecollideany(self.ship, self.powerups):
+            sounds.power_up.set_volume(0.5)
+            sounds.power_up.play()
+            for powerup in self.powerups.copy():
+                self.powerups.remove(powerup)
+
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play."""
         # Check if play button is clicked
@@ -236,7 +272,7 @@ class AlienInvasion:
         self.alien_bullets.update(ship_pos[0], ship_pos[1])
 
         for alien_bullet in self.alien_bullets.copy():
-            if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom:
+            if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom + 10:
                 self.alien_bullets.remove(alien_bullet)
         
         if random.randrange(0, 50) == 1:
@@ -263,6 +299,7 @@ class AlienInvasion:
         """Respond to bullet-alien collisions."""
         # Check for any bullets that have hit aliens
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+        pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
 
         if collisions:
             for aliens in collisions.values():
@@ -345,6 +382,9 @@ class AlienInvasion:
         
         for alien_bullet in self.alien_bullets.sprites():
             alien_bullet.blitme()
+        
+        for powerup in self.powerups.sprites():
+            powerup.blitme()
 
         self.ship.blitme()
         self.aliens.draw(self.screen)

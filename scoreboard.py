@@ -1,5 +1,5 @@
 import pygame.font
-from pygame.sprite import Group, Sprite
+from pygame.sprite import Group
 
 from heart import Heart
 
