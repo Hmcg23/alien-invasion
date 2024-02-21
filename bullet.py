@@ -44,7 +44,7 @@ class Bullet(Sprite):
         self.screen.blit(self.bullet, self.rect)
 
 class Alien_Bullet(Sprite):
-    def __init__(self, ai_game, aliens):
+    def __init__(self, ai_game, aliens, angle):
         """Initialize the bullet."""
         super().__init__()
         self.screen = ai_game.screen
@@ -69,19 +69,22 @@ class Alien_Bullet(Sprite):
         self.x = self.rect.x
         self.y = self.rect.y
 
+        self.angle = angle
 
         self.alien_ship_dist = math.dist((self.x, self.y), (self.ship.rect.x, self.ship.rect.y))
-
     
-    def update(self):
+    def update(self, ship_x, ship_y):
 
         # Move the bullet based on its velocity
-        self.x += 0
-        self.y += self.settings.alien_bullet_speed
+        self.x += self.settings.alien_bullet_speed * (ship_x - self.x) / self.alien_ship_dist
+        self.y += ((ship_x - self.x) / self.alien_ship_dist) + self.settings.alien_bullet_speed
 
         # Update the bullet's rect position
         self.rect.x = int(self.x)
         self.rect.y = int(self.y)    
+        
+        # Rotate the bullet based on its angle
+        self.bullet = pygame.transform.rotozoom(self.original_bullet, (self.angle-90)*-1.1, 1)
     
     def blitme(self):
         """Draw the bullet on the screen."""

@@ -25,7 +25,7 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         
         # Play the game soundtrack
-        sounds.soundtrack.play(100)
+        # sounds.soundtrack.play(100)
 
         # Initialize game settings
         self.settings = Settings()
@@ -169,17 +169,17 @@ class AlienInvasion:
         if not self.game_active:
             if easy_button_clicked:
                 # Set settings for easy difficulty
-                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 5)
+                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 3)
                 sounds.blip_select.play()
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 # Set settings for medium difficulty
-                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 7)
+                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 5)
                 sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 # Set settings for hard difficulty
-                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 10)
+                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 7)
                 sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
 
@@ -227,15 +227,18 @@ class AlienInvasion:
     
     def _fire_alien_bullet(self, enemy_bullets):
         if len(enemy_bullets) < self.settings.enemy_bullets_allowed:
-            new_alien_bullet = Alien_Bullet(self, self.aliens)
+            new_alien_bullet = Alien_Bullet(self, self.aliens, self.ship.angle)
             self.alien_bullets.add(new_alien_bullet)
 
     def _update_alien_bullets(self):
-        self.alien_bullets.update()
+        ship_pos = self.ship.get_pos()
+        self.alien_bullets.update(ship_pos[0], ship_pos[1])
 
         for alien_bullet in self.alien_bullets.copy():
             if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom:
                 self.alien_bullets.remove(alien_bullet)
+        
+        self._check_alien_ship_collisions()
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
@@ -247,6 +250,10 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         
         self._check_bullet_alien_collisions()
+
+    def _check_alien_ship_collisions(self):
+        if pygame.sprite.spritecollideany(self.ship, self.alien_bullets):
+            self._ship_hit()
     
     def _check_bullet_alien_collisions(self):
         """Respond to bullet-alien collisions."""
@@ -337,7 +344,7 @@ class AlienInvasion:
 
         self.ship.blitme()
         self.aliens.draw(self.screen)
-        if random.randrange(0, 30) == 1:
+        if random.randrange(0, 50) == 1:
             self._fire_alien_bullet(self.alien_bullets)
         
         # Draw score info
