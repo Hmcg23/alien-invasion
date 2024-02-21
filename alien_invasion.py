@@ -252,8 +252,6 @@ class AlienInvasion:
             self.last_powerup_time = current_time
             self.next_powerup_time = random.randint(5000, 10000)  # Random time between 5 and 10 seconds in milliseconds
 
-            self._check_powerup_collisions()
-
     def _update_powerup(self):
         self.powerups.update()
 
@@ -266,111 +264,7 @@ class AlienInvasion:
     def _check_powerup_collisions(self):
         if pygame.sprite.spritecollideany(self.ship, self.powerups):
             self.pick_powerup = random.randint(1, 3)
-
-# ----SHIP---- #
-    
-    def _ship_hit(self):
-        """Respond to the ship being hit by an alien."""
-        if self.stats.ships_left > 0:
-            sounds.ship_hit.set_volume(0.5)
-            sounds.ship_hit.play()
-            # Decrement ships_left and update scoreboard
-            self.stats.ships_left -= 1
-            self.sb.prep_lives()
-            # Empty the list of aliens and bullets
-            self.bullets.empty()
-            self.alien_bullets.empty()
-            self.aliens.empty()
-
-            # Create a new fleet and center the ship
-            self._create_fleet()
-            self.ship.center_ship()
-
-            sleep(0.2)
-        else:
-            # Reset ship velocity and end the game if no ships left
-            self.ship.x_vel = 0
-            self.ship.y_vel = 0
-
-            sounds.death_sound.play()
-            self.game_active = False
-            pygame.mouse.set_visible(True)
-
-# ----SHIP BULLETS---- #
-    
-    def _fire_bullet(self):
-        """Fire a bullet if limit not reached yet."""
-        # Fire a bullet if limit not reached
-        if len(self.bullets) < self.settings.bullets_allowed:
-            new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
-            self.bullets.add(new_bullet)
-
-            new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
-            self.bullets.add(new_bullet)
-
-            if self.game_active:
-                sounds.shoot.set_volume(0.1)
-                sounds.shoot.play()
-
-    def _update_bullets(self):
-        """Update position of bullets and get rid of old bullets."""
-        # Update bullet positions
-        self.bullets.update()
-        # Get rid of bullets that have disappeared
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
-                self.bullets.remove(bullet)
-        
-        self._check_bullet_alien_collisions()
-
-# ----ALIEN BULLETS---- #
-
-    def _fire_alien_bullet(self, enemy_bullets):
-        if len(enemy_bullets) < self.settings.enemy_bullets_allowed:
-            new_alien_bullet = Alien_Bullet(self, self.aliens, self.ship.angle)
-            self.alien_bullets.add(new_alien_bullet)
-
-    def _update_alien_bullets(self):
-        ship_pos = self.ship.get_pos()
-        self.alien_bullets.update(ship_pos[0], ship_pos[1])
-
-        for alien_bullet in self.alien_bullets.copy():
-            if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom + 10:
-                self.alien_bullets.remove(alien_bullet)
-        
-        if random.randrange(0, 50) == 1:
-            self._fire_alien_bullet(self.alien_bullets)
-        
-        self._check_alien_ship_collisions()
-
-    def _check_bullet_alien_collisions(self):
-            """Respond to bullet-alien collisions."""
-            # Check for any bullets that have hit aliens
-            collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
-            pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
-
-            if collisions:
-                for aliens in collisions.values():
-                    sounds.explosion.set_volume(0.2)
-                    sounds.explosion.play()
-                    # Increase score for each alien hit
-                    self.stats.score += self.settings.alien_points * len(aliens)
-                self.sb.prep_score()
-                self.sb.check_high_score()
-
-            if not self.aliens:
-                # If all aliens destroyed, start a new level
-                sounds.level_up.play()
-                self.bullets.empty()
-                self.alien_bullets.empty()
-                self.ship.center_ship()
-                self._create_fleet()
-                self.settings.increase_speed()
-
-                # Increase level
-                self.stats.level += 1
-                self.sb.prep_level()
-                
+            
 # ----ALIENS---- #
       
     def _create_fleet(self):
@@ -454,6 +348,110 @@ class AlienInvasion:
                 if alien.rect.bottom >= self.settings.screen_height:
                     self._ship_hit()
                     break
+
+# ----ALIEN BULLETS---- #
+
+    def _fire_alien_bullet(self, enemy_bullets):
+        if len(enemy_bullets) < self.settings.enemy_bullets_allowed:
+            new_alien_bullet = Alien_Bullet(self, self.aliens, self.ship.angle)
+            self.alien_bullets.add(new_alien_bullet)
+
+    def _update_alien_bullets(self):
+        ship_pos = self.ship.get_pos()
+        self.alien_bullets.update(ship_pos[0], ship_pos[1])
+
+        for alien_bullet in self.alien_bullets.copy():
+            if alien_bullet.rect.bottom <= 0 or alien_bullet.rect.left <= self.screen_rect.left or alien_bullet.rect.right >= self.screen_rect.right or alien_bullet.rect.bottom >= self.screen_rect.bottom + 10:
+                self.alien_bullets.remove(alien_bullet)
+        
+        if random.randrange(0, 50) == 1:
+            self._fire_alien_bullet(self.alien_bullets)
+        
+        self._check_alien_ship_collisions()
+
+    def _check_bullet_alien_collisions(self):
+            """Respond to bullet-alien collisions."""
+            # Check for any bullets that have hit aliens
+            collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
+            pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
+
+            if collisions:
+                for aliens in collisions.values():
+                    sounds.explosion.set_volume(0.2)
+                    sounds.explosion.play()
+                    # Increase score for each alien hit
+                    self.stats.score += self.settings.alien_points * len(aliens)
+                self.sb.prep_score()
+                self.sb.check_high_score()
+
+            if not self.aliens:
+                # If all aliens destroyed, start a new level
+                sounds.level_up.play()
+                self.bullets.empty()
+                self.alien_bullets.empty()
+                self.ship.center_ship()
+                self._create_fleet()
+                self.settings.increase_speed()
+
+                # Increase level
+                self.stats.level += 1
+                self.sb.prep_level()
+
+# ----SHIP BULLETS---- #
+    
+    def _fire_bullet(self):
+        """Fire a bullet if limit not reached yet."""
+        # Fire a bullet if limit not reached
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
+            self.bullets.add(new_bullet)
+
+            new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
+            self.bullets.add(new_bullet)
+
+            if self.game_active:
+                sounds.shoot.set_volume(0.1)
+                sounds.shoot.play()
+
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        # Update bullet positions
+        self.bullets.update()
+        # Get rid of bullets that have disappeared
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
+                self.bullets.remove(bullet)
+        
+        self._check_bullet_alien_collisions()
+
+# ----SHIP---- #
+    
+    def _ship_hit(self):
+        """Respond to the ship being hit by an alien."""
+        if self.stats.ships_left > 0:
+            sounds.ship_hit.set_volume(0.5)
+            sounds.ship_hit.play()
+            # Decrement ships_left and update scoreboard
+            self.stats.ships_left -= 1
+            self.sb.prep_lives()
+            # Empty the list of aliens and bullets
+            self.bullets.empty()
+            self.alien_bullets.empty()
+            self.aliens.empty()
+
+            # Create a new fleet and center the ship
+            self._create_fleet()
+            self.ship.center_ship()
+
+            sleep(0.2)
+        else:
+            # Reset ship velocity and end the game if no ships left
+            self.ship.x_vel = 0
+            self.ship.y_vel = 0
+
+            sounds.death_sound.play()
+            self.game_active = False
+            pygame.mouse.set_visible(True)
 
 # ----SCREEN---- #
 
