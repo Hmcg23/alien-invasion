@@ -16,15 +16,12 @@ class Powerup(Sprite):
         self.rect = self.image.get_rect()
 
         # Set initial position, angle, and speed of the image
-        self.x = random.randint(10, self.settings.screen_width - 10)
+        self.x = random.randint(self.rect.x, self.settings.screen_width - self.rect.x)
         self.y = 0
 
         self.rect.x = int(self.x)    
 
         self.angle = float(0)
-
-        # self.powerups = [i for i in range(0, 10)]
-        self.powerups = 0
         
     def update(self):
         """Update the bullet's position."""

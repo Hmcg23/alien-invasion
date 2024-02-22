@@ -262,8 +262,15 @@ class AlienInvasion:
         self._check_powerup_collisions()
     
     def _check_powerup_collisions(self):
-        if pygame.sprite.spritecollideany(self.ship, self.powerups):
-            self.pick_powerup = random.randint(1, 3)
+        for powerup in self.powerups.copy():
+
+            if pygame.sprite.spritecollideany(self.ship, self.powerups):
+                sounds.power_up.set_volume(0.5)
+                sounds.power_up.play()
+                self.pick_powerup = random.randint(1, 3)
+                print(f"Random powerup: {self.pick_powerup}")
+                # Delete the powerup if collided
+                self.powerups.remove(powerup)
             
 # ----ALIENS---- #
       
@@ -296,33 +303,28 @@ class AlienInvasion:
     
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet."""
-        if pygame.sprite.spritecollideany(self.ship, self.powerups):
-            sounds.power_up.set_volume(0.5)
-            sounds.power_up.play()
-            for powerup in self.powerups.copy():
-                # Delete the powerup if collided
-                powerup.powerups = 0
-
-                self.powerups.remove(powerup)
-            # If ship collides with a powerup, stop updating aliens for 5 seconds
+        if self.pick_powerup == 1 and not self.aliens_update_paused:
             self.aliens_update_paused = True
-            
-            self.powerup_start_time = pygame.time.get_ticks()
-
+            self.powerup_start_time = pygame.time.get_ticks() # Record the time when the powerup starts
+        
         if not self.aliens_update_paused:
             self._check_fleet_edges()
             self.aliens.update()
         
         if self.aliens_update_paused:
             current_time = pygame.time.get_ticks()
-            if current_time - self.powerup_start_time >= 3000:  # 3000 milliseconds = 5 seconds
+            if current_time - self.powerup_start_time >= 3000:  # 3000 milliseconds = 3 seconds
                 self.aliens_update_paused = False
+                self.pick_powerup = 0
+                print(f"Reset Powerup: {self.pick_powerup}")
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
             self._ship_hit()
         
         self._check_aliens_bottom()
+
+
     
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
