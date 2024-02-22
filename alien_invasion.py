@@ -78,11 +78,11 @@ class AlienInvasion:
         # Initialize variables for Powerups
         self.pick_powerup = 0
 
-        self.aliens_update_paused = False
+        self.aliens_freeze = False
         self.powerup_start_time = 0
 
-        self.double_shoot = False
-        self.double_shoot_time = 0
+        self.double_bullet = False
+        self.double_bullet_time = 0
 
 
     def run_game(self):
@@ -250,7 +250,7 @@ class AlienInvasion:
 
             # Reset the timer for the next powerup
             self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(5000, 10000)  # Random time between 5 and 10 seconds in milliseconds
+            self.next_powerup_time = random.randint(1000, 5000)  # Random time between 5 and 10 seconds in milliseconds
 
     def _update_powerup(self):
         self.powerups.update()
@@ -267,8 +267,7 @@ class AlienInvasion:
             if pygame.sprite.spritecollideany(self.ship, self.powerups):
                 sounds.power_up.set_volume(0.5)
                 sounds.power_up.play()
-                self.pick_powerup = random.randint(1, 3)
-                print(f"Random powerup: {self.pick_powerup}")
+                self.pick_powerup = random.randint(1, 2)
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
             
@@ -303,20 +302,19 @@ class AlienInvasion:
     
     def _update_aliens(self):
         """Update the positions of all aliens in the fleet."""
-        if self.pick_powerup == 1 and not self.aliens_update_paused:
-            self.aliens_update_paused = True
+        if self.pick_powerup == 1 and not self.aliens_freeze and self.game_active:
+            self.aliens_freeze = True
             self.powerup_start_time = pygame.time.get_ticks() # Record the time when the powerup starts
         
-        if not self.aliens_update_paused:
+        if not self.aliens_freeze:
             self._check_fleet_edges()
             self.aliens.update()
         
-        if self.aliens_update_paused:
+        if self.aliens_freeze:
             current_time = pygame.time.get_ticks()
             if current_time - self.powerup_start_time >= 3000:  # 3000 milliseconds = 3 seconds
-                self.aliens_update_paused = False
+                self.aliens_freeze = False
                 self.pick_powerup = 0
-                print(f"Reset Powerup: {self.pick_powerup}")
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
@@ -324,8 +322,6 @@ class AlienInvasion:
         
         self._check_aliens_bottom()
 
-
-    
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
         for alien in self.aliens.sprites():
@@ -402,18 +398,39 @@ class AlienInvasion:
 # ----SHIP BULLETS---- #
     
     def _fire_bullet(self):
-        """Fire a bullet if limit not reached yet."""
-        # Fire a bullet if limit not reached
-        if len(self.bullets) < self.settings.bullets_allowed:
-            new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
-            self.bullets.add(new_bullet)
+        if self.pick_powerup == 2 and not self.double_bullet:
+            self.double_bullet = True
+            self.powerup_start_time = pygame.time.get_ticks()
+            if not self.game_active:
+                self.pick_powerup = 0
+                self.double_bullet = False
+        
+        if not self.double_bullet:
+            # Fire ONE bullet if limit not reached
+            if len(self.bullets) < self.settings.bullets_allowed:
+                new_bullet = Bullet(self, self.ship.x + 25, self.ship.y, self.ship.angle)
+                self.bullets.add(new_bullet)
 
-            new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
-            self.bullets.add(new_bullet)
+                if self.game_active:
+                    sounds.shoot.set_volume(0.1)
+                    sounds.shoot.play()
+        
+        if self.double_bullet:
+            current_time = pygame.time.get_ticks()
 
-            if self.game_active:
-                sounds.shoot.set_volume(0.1)
-                sounds.shoot.play()
+            if len(self.bullets) < self.settings.bullets_allowed:
+                new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
+                self.bullets.add(new_bullet)
+
+                new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
+                self.bullets.add(new_bullet)
+
+                if self.game_active:
+                    sounds.shoot.set_volume(0.1)
+                    sounds.shoot.play()
+            if current_time - self.powerup_start_time >= 10000:  # 3000 milliseconds = 3 seconds
+                self.double_bullet = False
+                self.pick_powerup = 0
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
@@ -454,6 +471,11 @@ class AlienInvasion:
             sounds.death_sound.play()
             self.game_active = False
             pygame.mouse.set_visible(True)
+
+            # Reset Powerups
+            self.aliens_freeze = False
+            self.double_bullet = False
+            self.pick_powerup = 0
 
 # ----SCREEN---- #
 
