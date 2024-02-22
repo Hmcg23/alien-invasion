@@ -79,7 +79,7 @@ class AlienInvasion:
         self.pick_powerup = 0
 
         self.aliens_freeze = False
-        self.powerup_start_time = 0
+        self.powerup_start_time = None
 
         self.double_bullet = False
         self.double_bullet_time = 0
@@ -96,7 +96,10 @@ class AlienInvasion:
                 self.ship.update()
                 self._update_bullets()
                 self._update_alien_bullets()
-                self._update_aliens()
+                # self._update_aliens()
+
+                # Powerup Functions
+                self._aliens_freeze_powerup()
 
                 self._activate_powerup()
                 self._update_powerup()
@@ -139,7 +142,8 @@ class AlienInvasion:
         elif event.key == pygame.K_q:
             self._close_game()
         elif event.key == pygame.K_SPACE:
-            self._fire_bullet()
+            # self._fire_bullet()
+            self._double_bullet_powerup()
         elif event.key == pygame.K_m:
             sounds.soundtrack.set_volume(0)
         elif event.key == pygame.K_p:
@@ -250,7 +254,7 @@ class AlienInvasion:
 
             # Reset the timer for the next powerup
             self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(1000, 5000)  # Random time between 5 and 10 seconds in milliseconds
+            self.next_powerup_time = random.randint(7000, 10000) # 7000, 10000
 
     def _update_powerup(self):
         self.powerups.update()
@@ -270,7 +274,27 @@ class AlienInvasion:
                 self.pick_powerup = random.randint(1, 2)
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
+
+    def _do_powerup(self, powerup_num, powerup_activated, powerup_time, normal_function, powerup_function = None):
+        if self.pick_powerup == powerup_num and not powerup_activated and self.game_active:
+            powerup_activated = True
+
+            if not self.powerup_start_time:
+                self.powerup_start_time = pygame.time.get_ticks()
+        
+        if not powerup_activated:
+            normal_function()
+        
+        if powerup_activated:
+            current_time = pygame.time.get_ticks()
+            if powerup_function:
+                powerup_function()
             
+            if current_time - self.powerup_start_time >= powerup_time:
+                powerup_activated = False
+                self.pick_powerup = 0
+                self.powerup_start_time = None
+         
 # ----ALIENS---- #
       
     def _create_fleet(self):
@@ -300,27 +324,19 @@ class AlienInvasion:
         new_alien.rect.y = y_position
         self.aliens.add(new_alien)
     
-    def _update_aliens(self):
-        """Update the positions of all aliens in the fleet."""
-        if self.pick_powerup == 1 and not self.aliens_freeze and self.game_active:
-            self.aliens_freeze = True
-            self.powerup_start_time = pygame.time.get_ticks() # Record the time when the powerup starts
-        
-        if not self.aliens_freeze:
-            self._check_fleet_edges()
-            self.aliens.update()
-        
-        if self.aliens_freeze:
-            current_time = pygame.time.get_ticks()
-            if current_time - self.powerup_start_time >= 3000:  # 3000 milliseconds = 3 seconds
-                self.aliens_freeze = False
-                self.pick_powerup = 0
+    def _aliens_freeze_powerup(self):
+        self._do_powerup(1, self.aliens_freeze, 3000, self._update_aliens)
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
             self._ship_hit()
-        
+            
         self._check_aliens_bottom()
+
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self._check_fleet_edges()
+        self.aliens.update()
 
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
@@ -396,41 +412,31 @@ class AlienInvasion:
                 self.sb.prep_level()
 
 # ----SHIP BULLETS---- #
+                
+    def _double_bullet_powerup(self):
+        self._do_powerup(2, self.double_bullet, 10000, self._fire_bullet, self._fire_double_bullet)
     
     def _fire_bullet(self):
-        if self.pick_powerup == 2 and not self.double_bullet:
-            self.double_bullet = True
-            self.powerup_start_time = pygame.time.get_ticks()
-            if not self.game_active:
-                self.pick_powerup = 0
-                self.double_bullet = False
-        
-        if not self.double_bullet:
-            # Fire ONE bullet if limit not reached
-            if len(self.bullets) < self.settings.bullets_allowed:
-                new_bullet = Bullet(self, self.ship.x + 25, self.ship.y, self.ship.angle)
-                self.bullets.add(new_bullet)
+        # Fire ONE bullet if limit not reached
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self, self.ship.x + 25, self.ship.y, self.ship.angle)
+            self.bullets.add(new_bullet)
 
-                if self.game_active:
-                    sounds.shoot.set_volume(0.1)
-                    sounds.shoot.play()
-        
-        if self.double_bullet:
-            current_time = pygame.time.get_ticks()
+            if self.game_active:
+                sounds.shoot.set_volume(0.1)
+                sounds.shoot.play()
+    
+    def _fire_double_bullet(self):
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
+            self.bullets.add(new_bullet)
 
-            if len(self.bullets) < self.settings.bullets_allowed:
-                new_bullet = Bullet(self, self.ship.x-5, self.ship.y + 20, self.ship.angle)
-                self.bullets.add(new_bullet)
+            new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
+            self.bullets.add(new_bullet)
 
-                new_bullet = Bullet(self, self.ship.x + 45, self.ship.y + 20, self.ship.angle)
-                self.bullets.add(new_bullet)
-
-                if self.game_active:
-                    sounds.shoot.set_volume(0.1)
-                    sounds.shoot.play()
-            if current_time - self.powerup_start_time >= 10000:  # 3000 milliseconds = 3 seconds
-                self.double_bullet = False
-                self.pick_powerup = 0
+        if self.game_active:
+            sounds.shoot.set_volume(0.1)
+            sounds.shoot.play()
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
