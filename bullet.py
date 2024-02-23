@@ -12,10 +12,24 @@ class Bullet(Sprite):
         self.settings = ai_game.settings
 
         # Load and transform bullet image
-        self.original_bullet = pygame.image.load('images/bullet.bmp').convert()
-        self.bullet = pygame.image.load('images/bullet.bmp')
-        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1)
+        self.original_bullet = pygame.image.load('images/bullet.bmp').convert_alpha()
+        self.bullet = pygame.transform.rotozoom(self.original_bullet, 90, 1)
         self.rect = self.bullet.get_rect()
+
+        self.original_bullet_yellow = pygame.image.load('images/bullet.bmp').convert_alpha()
+
+        for y_pos in range(self.original_bullet_yellow.get_height()):
+            for x_pos in range(self.original_bullet_yellow.get_width()):
+                color = self.original_bullet_yellow.get_at((x_pos, y_pos))
+                if color[3] != 0:  # If pixel is not transparent
+                    if not (200 <= color[0] <= 255 and 200 <= color[1] <= 255 and 200 <= color[2] <= 255):  # If not in the range of white and gray
+                        self.original_bullet_yellow.set_at((x_pos, y_pos), (255, 255, 0, color[3]))  # Set color to yellow
+        
+        # Scale down the ship image
+        self.bullet_yellow = pygame.transform.rotozoom(self.original_bullet_yellow, 90, 1)
+        self.rect_yellow = self.bullet_yellow.get_rect()
+        
+
 
         # Set initial position, angle, and speed of the bullet
         self.x = x
@@ -42,3 +56,8 @@ class Bullet(Sprite):
         """Draw the bullet on the screen."""
         # Blit the bullet onto the screen at its current position
         self.screen.blit(self.bullet, self.rect)
+    
+    def blitme_yellow(self):
+        """Draw the bullet on the screen."""
+        # Blit the bullet onto the screen at its current position
+        self.screen.blit(self.bullet_yellow, self.rect)

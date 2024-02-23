@@ -11,10 +11,9 @@ class Ship(Sprite):
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and set its size
-        self.original_image = pygame.image.load('images/spaceship.bmp').convert()
-        self.image = pygame.image.load('images/spaceship.bmp')
-        self.image = pygame.transform.rotozoom(self.image, 0, 0.5)
-
+        self.original_image = pygame.image.load('images/spaceship.bmp').convert_alpha()
+        self.image = pygame.transform.rotozoom(self.original_image, 0, 0.5)
+        
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen

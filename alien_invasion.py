@@ -67,9 +67,9 @@ class AlienInvasion:
         # Create overlay for non-active game state
         self.overlay = Overlay(self)
 
-        # Set intervals for when a powerup activates
+        # Set intervals for when a powerup activates 
         self.last_powerup_time = pygame.time.get_ticks()
-        self.next_powerup_time = random.randint(1000, 10000)
+        self.next_powerup_time = random.randint(7000, 10000)
 
         # Set colors and text for difficulty buttons
         self.easy_button.text_color = (255, 105, 180)
@@ -78,12 +78,11 @@ class AlienInvasion:
         # Initialize variables for Powerups
         self.pick_powerup = 0
 
-        self.aliens_freeze = False
-        self.powerup_start_time = None
-
-        self.double_bullet = False
-        self.double_bullet_time = 0
-
+        self.powerup_states = {
+            1: {"activated": False, "start_time": None},
+            2: {"activated": False, "start_time": None},
+            3: {"activated": False, "start_time": None}
+        }
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -142,7 +141,6 @@ class AlienInvasion:
         elif event.key == pygame.K_q:
             self._close_game()
         elif event.key == pygame.K_SPACE:
-            # self._fire_bullet()
             self._double_bullet_powerup()
         elif event.key == pygame.K_m:
             sounds.soundtrack.set_volume(0)
@@ -271,29 +269,32 @@ class AlienInvasion:
             if pygame.sprite.spritecollideany(self.ship, self.powerups):
                 sounds.power_up.set_volume(0.5)
                 sounds.power_up.play()
-                self.pick_powerup = random.randint(1, 2)
+                self.pick_powerup = random.randint(1, 3)
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
 
-    def _do_powerup(self, powerup_num, powerup_activated, powerup_time, normal_function, powerup_function = None):
-        if self.pick_powerup == powerup_num and not powerup_activated and self.game_active:
-            powerup_activated = True
-
-            if not self.powerup_start_time:
-                self.powerup_start_time = pygame.time.get_ticks()
+    def _do_powerup(self, powerup_num, powerup_time, normal_function, powerup_function = None):
+        powerup_state = self.powerup_states[powerup_num]
         
-        if not powerup_activated:
+        if self.pick_powerup == powerup_num and not powerup_state["activated"]:
+            powerup_state["activated"] = True
+            powerup_state["start_time"] = pygame.time.get_ticks()
+
+            if not powerup_state["start_time"]:
+                powerup_state["start_time"] = pygame.time.get_ticks()
+        
+        if not powerup_state["activated"]:
             normal_function()
         
-        if powerup_activated:
+        if powerup_state["activated"]:
             current_time = pygame.time.get_ticks()
             if powerup_function:
                 powerup_function()
             
-            if current_time - self.powerup_start_time >= powerup_time:
-                powerup_activated = False
+            if current_time - powerup_state["start_time"] >= powerup_time:
+                powerup_state["activated"] = False
                 self.pick_powerup = 0
-                self.powerup_start_time = None
+                powerup_state["start_time"] = None
          
 # ----ALIENS---- #
       
@@ -325,7 +326,7 @@ class AlienInvasion:
         self.aliens.add(new_alien)
     
     def _aliens_freeze_powerup(self):
-        self._do_powerup(1, self.aliens_freeze, 3000, self._update_aliens)
+        self._do_powerup(1, 5000, self._update_aliens)
 
         # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
@@ -383,6 +384,23 @@ class AlienInvasion:
         
         self._check_alien_ship_collisions()
 
+    def yellow_bullets_powerup(self):
+        self._do_powerup(3, 10000, self._check_bullet_alien_collisions, self._check_yellow_bullet_alien_collisions)
+        
+        if not self.aliens:
+                # If all aliens destroyed, start a new level
+                sounds.level_up.play()
+                self.bullets.empty()
+                self.alien_bullets.empty()
+                self.ship.center_ship()
+                self._create_fleet()
+                self.settings.increase_speed()
+
+                # Increase level
+                self.stats.level += 1
+                self.sb.prep_level()
+        
+    
     def _check_bullet_alien_collisions(self):
             """Respond to bullet-alien collisions."""
             # Check for any bullets that have hit aliens
@@ -397,24 +415,28 @@ class AlienInvasion:
                     self.stats.score += self.settings.alien_points * len(aliens)
                 self.sb.prep_score()
                 self.sb.check_high_score()
+    
+    def _check_yellow_bullet_alien_collisions(self):
+            """Respond to bullet-alien collisions."""
+            # Check for any bullets that have hit aliens
+            collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
+            pygame.sprite.groupcollide(self.bullets, self.alien_bullets, False, True)
 
-            if not self.aliens:
-                # If all aliens destroyed, start a new level
-                sounds.level_up.play()
-                self.bullets.empty()
-                self.alien_bullets.empty()
-                self.ship.center_ship()
-                self._create_fleet()
-                self.settings.increase_speed()
-
-                # Increase level
-                self.stats.level += 1
-                self.sb.prep_level()
+            if collisions:
+                for aliens in collisions.values():
+                    sounds.explosion.set_volume(0.2)
+                    sounds.explosion.play()
+                    # Increase score for each alien hit
+                    self.stats.score += self.settings.alien_points * len(aliens)
+                self.sb.prep_score()
+                self.sb.check_high_score()
+            
+            
 
 # ----SHIP BULLETS---- #
                 
     def _double_bullet_powerup(self):
-        self._do_powerup(2, self.double_bullet, 10000, self._fire_bullet, self._fire_double_bullet)
+        self._do_powerup(2, 10000, self._fire_bullet, self._fire_double_bullet)
     
     def _fire_bullet(self):
         # Fire ONE bullet if limit not reached
@@ -447,7 +469,7 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0 or bullet.rect.left <= self.screen_rect.left or bullet.rect.right >= self.screen_rect.right or bullet.rect.bottom >= self.screen_rect.bottom:
                 self.bullets.remove(bullet)
         
-        self._check_bullet_alien_collisions()
+        self.yellow_bullets_powerup()
 
 # ----SHIP---- #
     
@@ -479,8 +501,11 @@ class AlienInvasion:
             pygame.mouse.set_visible(True)
 
             # Reset Powerups
-            self.aliens_freeze = False
-            self.double_bullet = False
+            self.powerup_states = {
+                1: {"activated": False, "start_time": None},
+                2: {"activated": False, "start_time": None},
+                3: {"activated": False, "start_time": None}
+            }
             self.pick_powerup = 0
 
 # ----SCREEN---- #
@@ -489,8 +514,8 @@ class AlienInvasion:
         """Update images on the screen, and flip to the new screen."""
         # Redraw the screen during each pass through the loop
         for bullet in self.bullets.sprites():
-            bullet.blitme()
-        
+            self._do_powerup(3, 10000, bullet.blitme, bullet.blitme_yellow)
+                    
         for alien_bullet in self.alien_bullets.sprites():
             alien_bullet.blitme()
         

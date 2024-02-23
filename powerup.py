@@ -16,7 +16,7 @@ class Powerup(Sprite):
         self.rect = self.image.get_rect()
 
         # Set initial position, angle, and speed of the image
-        self.x = random.randint(self.rect.x, self.settings.screen_width - self.rect.x)
+        self.x = random.randint(self.rect.x, self.settings.screen_width - 100)
         self.y = 0
 
         self.rect.x = int(self.x)    
@@ -34,7 +34,8 @@ class Powerup(Sprite):
         # Rotate the image based on its angle
         self.image = pygame.transform.rotozoom(self.original_image, self.angle, 0.1)
 
-        self.angle += 5 % 360
+        self.angle += 5
+        self.angle = self.angle % 360
 
         self.rect.center = (self.x, self.y)
     
