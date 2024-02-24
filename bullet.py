@@ -26,9 +26,7 @@ class Bullet(Sprite):
                         self.original_bullet_yellow.set_at((x_pos, y_pos), (255, 255, 0, color[3]))  # Set color to yellow
         
         # Scale down the ship image
-        self.bullet_yellow = pygame.transform.rotozoom(self.original_bullet_yellow, 90, 1)
-        self.rect_yellow = self.bullet_yellow.get_rect()
-        
+        self.bullet_yellow = pygame.transform.rotozoom(self.original_bullet_yellow, 90, 1)        
 
 
         # Set initial position, angle, and speed of the bullet

@@ -81,7 +81,8 @@ class AlienInvasion:
         self.powerup_states = {
             1: {"activated": False, "start_time": None},
             2: {"activated": False, "start_time": None},
-            3: {"activated": False, "start_time": None}
+            3: {"activated": False, "start_time": None},
+            4: {"activated": False, "start_time": None}
         }
 
     def run_game(self):
@@ -143,9 +144,9 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._double_bullet_powerup()
         elif event.key == pygame.K_m:
-            sounds.soundtrack.set_volume(0)
+            pygame.mixer.pause()
         elif event.key == pygame.K_p:
-            sounds.soundtrack.set_volume(100)
+            pygame.mixer.unpause()
 
     def _check_keyup_events(self, event):
         """Respond to key releases."""
@@ -239,7 +240,7 @@ class AlienInvasion:
                 # Set settings for hard difficulty
                 self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 5)
                 sounds.blip_select.play()
-                self._set_button_colors('hard',  (255,105,180), (0, 200, 200))
+                self._set_button_colors('hard',  (255,105,180), (0, 200, 200))            
 
 # ----POWERUPS---- #
     
@@ -252,7 +253,7 @@ class AlienInvasion:
 
             # Reset the timer for the next powerup
             self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(7000, 10000) # 7000, 10000
+            self.next_powerup_time = random.randint(5000, 10000) # 7000, 10000
 
     def _update_powerup(self):
         self.powerups.update()
@@ -269,7 +270,7 @@ class AlienInvasion:
             if pygame.sprite.spritecollideany(self.ship, self.powerups):
                 sounds.power_up.set_volume(0.5)
                 sounds.power_up.play()
-                self.pick_powerup = random.randint(1, 3)
+                self.pick_powerup = random.randint(1, 4)
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
 
@@ -328,9 +329,7 @@ class AlienInvasion:
     def _aliens_freeze_powerup(self):
         self._do_powerup(1, 5000, self._update_aliens)
 
-        # Check for alien-ship collisions
-        if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            self._ship_hit()
+        self._invinsible_ship_powerup()
             
         self._check_aliens_bottom()
 
@@ -352,9 +351,23 @@ class AlienInvasion:
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
     
-    def _check_alien_ship_collisions(self):
+    def _check_alien_bullet_and_ship_collisions(self):
+        # Check for alien-ship collisions
         if pygame.sprite.spritecollideany(self.ship, self.alien_bullets):
             self._ship_hit()
+    
+    def _invincible_ship_alien_bullet_collisions(self):
+        alien_bullets_to_remove = []
+
+        # Check for collisions between the ship and aliens
+        for bullet in self.alien_bullets:
+            if pygame.sprite.collide_rect(self.ship, bullet):
+                # If a collision is detected, mark the alien for removal
+                alien_bullets_to_remove.append(bullet)
+
+        # Remove the collided aliens from the group
+        for bullet in alien_bullets_to_remove:
+            self.alien_bullets.remove(bullet)
     
     def _check_aliens_bottom(self):
             """Check if any aliens have reached the bottom of the screen."""
@@ -382,7 +395,8 @@ class AlienInvasion:
         if random.randrange(0, 50) == 1:
             self._fire_alien_bullet(self.alien_bullets)
         
-        self._check_alien_ship_collisions()
+        self._do_powerup(4, 5000, self._check_alien_bullet_and_ship_collisions, self._invincible_ship_alien_bullet_collisions)
+
 
     def yellow_bullets_powerup(self):
         self._do_powerup(3, 10000, self._check_bullet_alien_collisions, self._check_yellow_bullet_alien_collisions)
@@ -400,7 +414,6 @@ class AlienInvasion:
                 self.stats.level += 1
                 self.sb.prep_level()
         
-    
     def _check_bullet_alien_collisions(self):
             """Respond to bullet-alien collisions."""
             # Check for any bullets that have hit aliens
@@ -429,9 +442,7 @@ class AlienInvasion:
                     # Increase score for each alien hit
                     self.stats.score += self.settings.alien_points * len(aliens)
                 self.sb.prep_score()
-                self.sb.check_high_score()
-            
-            
+                self.sb.check_high_score()              
 
 # ----SHIP BULLETS---- #
                 
@@ -473,6 +484,35 @@ class AlienInvasion:
 
 # ----SHIP---- #
     
+    def _invinsible_ship_powerup(self):
+        self._do_powerup(4, 5000, self._ship_alien_collisions, self._invincible_ship_alien_collisions)
+    
+    def _ship_alien_collisions(self):
+        # Check for alien-ship collisions
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            self._ship_hit()
+    
+    def _invincible_ship_alien_collisions(self):
+        aliens_to_remove = []
+
+        # Check for collisions between the ship and aliens
+        for alien in self.aliens:
+            if pygame.sprite.collide_rect(self.ship, alien):
+                # If a collision is detected, mark the alien for removal
+                sounds.explosion.set_volume(0.2)
+                sounds.explosion.play()
+                # Increase score for each alien hit
+                self.stats.score += self.settings.alien_points
+                aliens_to_remove.append(alien)
+
+            self.sb.prep_score()
+            self.sb.check_high_score()
+
+        # Remove the collided aliens from the group
+        for alien in aliens_to_remove:
+            self.aliens.remove(alien)
+            
+    
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
         if self.stats.ships_left > 0:
@@ -504,9 +544,12 @@ class AlienInvasion:
             self.powerup_states = {
                 1: {"activated": False, "start_time": None},
                 2: {"activated": False, "start_time": None},
-                3: {"activated": False, "start_time": None}
+                3: {"activated": False, "start_time": None},
+                4: {"activated": False, "start_time": None}
             }
             self.pick_powerup = 0
+
+            self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 3)
 
 # ----SCREEN---- #
 
@@ -521,8 +564,10 @@ class AlienInvasion:
         
         for powerup in self.powerups.sprites():
             powerup.blitme()
-
-        self.ship.blitme()
+        
+        # self._do_powerup(3, 10000, self._check_bullet_alien_collisions, self._check_yellow_bullet_alien_collisions)
+        self._do_powerup(4, 5000, self.ship.blitme, self.ship.blitme_yellow)
+        # self.ship.blitme()
         self.aliens.draw(self.screen)
         
         # Draw score info

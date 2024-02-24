@@ -13,8 +13,12 @@ class Ship(Sprite):
         # Load the ship image and set its size
         self.original_image = pygame.image.load('images/spaceship.bmp').convert_alpha()
         self.image = pygame.transform.rotozoom(self.original_image, 0, 0.5)
-        
         self.rect = self.image.get_rect()
+
+        # Yellow Ship
+        self.original_yellow_image = pygame.image.load('images/spaceship-yellow.bmp').convert_alpha()
+        self.yellow_image = pygame.transform.rotozoom(self.original_yellow_image, 0, 0.5)
+        self.yellow_rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen
         self.rect.centerx = self.screen_rect.centerx
@@ -80,6 +84,7 @@ class Ship(Sprite):
     def rotate(self, angle):
         """Rotate the ship image."""
         self.image = pygame.transform.rotozoom(self.original_image, self.angle, 0.5)
+        self.yellow_image = pygame.transform.rotozoom(self.original_yellow_image, self.angle, 0.5)
         if int(self.angle) != angle:
             self.angle += ((angle - self.angle) / 10)
         else:
@@ -99,3 +104,7 @@ class Ship(Sprite):
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image, self.rect)
+
+    def blitme_yellow(self):
+        """Draw the ship at its current location."""
+        self.screen.blit(self.yellow_image, self.rect)
