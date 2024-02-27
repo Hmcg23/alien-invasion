@@ -37,7 +37,7 @@ class Alien_Bullet(Sprite):
     def update(self, ship_x, ship_y):
 
         # Move the bullet based on its velocity
-        self.x += self.settings.alien_bullet_speed * (ship_x - self.x) / self.alien_ship_dist
+        self.x += self.settings.alien_bullet_speed * (ship_x - self.x) / (self.alien_ship_dist * 2)
         self.y += ((ship_x - self.x) / self.alien_ship_dist) + self.settings.alien_bullet_speed * 2
 
         # Update the bullet's rect position

@@ -9,7 +9,8 @@ import sounds
 from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard
-from button import Button, Overlay
+from button import Button
+from overlay import Overlay
 from ship import Ship
 from bullet import Bullet
 from alien_bullet import Alien_Bullet
@@ -84,6 +85,8 @@ class AlienInvasion:
             3: {"activated": False, "start_time": None},
             4: {"activated": False, "start_time": None}
         }
+
+        self.blink = False
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -228,17 +231,17 @@ class AlienInvasion:
         if not self.game_active:
             if easy_button_clicked:
                 # Set settings for easy difficulty
-                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 3)
+                self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 2)
                 sounds.blip_select.play()
                 self._set_button_colors('easy',  (255, 105, 180), (0, 200, 200))
             elif medium_button_clicked:
                 # Set settings for medium difficulty
-                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 4)
+                self.settings.initialize_dynamic_settings(0.4, 10.0, 2.0, 3)
                 sounds.blip_select.play()
                 self._set_button_colors('medium', (255,105,180), (0, 200, 200))
             elif hard_button_clicked:
                 # Set settings for hard difficulty
-                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 5)
+                self.settings.initialize_dynamic_settings(0.5, 10.0, 3.0, 4)
                 sounds.blip_select.play()
                 self._set_button_colors('hard',  (255,105,180), (0, 200, 200))            
 
@@ -292,10 +295,17 @@ class AlienInvasion:
             if powerup_function:
                 powerup_function()
             
+            if current_time - powerup_state["start_time"] >= powerup_time - 2000:
+                self.blink = True
+            
             if current_time - powerup_state["start_time"] >= powerup_time:
                 powerup_state["activated"] = False
                 self.pick_powerup = 0
                 powerup_state["start_time"] = None
+                self.blink = False
+                self.overlaytransparency = 0
+                self.overlay.ncreasing = True
+                self.overlay.blink = False
          
 # ----ALIENS---- #
       
@@ -549,7 +559,7 @@ class AlienInvasion:
             }
             self.pick_powerup = 0
 
-            self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 3)
+            self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 2)
 
 # ----SCREEN---- #
 
@@ -565,10 +575,10 @@ class AlienInvasion:
         for powerup in self.powerups.sprites():
             powerup.blitme()
         
-        # self._do_powerup(3, 10000, self._check_bullet_alien_collisions, self._check_yellow_bullet_alien_collisions)
         self._do_powerup(4, 5000, self.ship.blitme, self.ship.blitme_yellow)
-        # self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        self.overlay.blink_overlay(self.screen, self.blink)
         
         # Draw score info
         self.sb.show_score()
