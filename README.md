@@ -1,6 +1,8 @@
 # 🛸 Alien Invasion
 
-![Game Gif](images/game-ex.gif)
+<p align="center">
+  <img src="./images/game-ex.gif" />
+</p>
 
 **Description**
 
