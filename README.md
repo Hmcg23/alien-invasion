@@ -1,7 +1,6 @@
 <h1 align="center">🛸 Alien Invasion</h1>
 
 <h2 align="center">A school project loosely based on the Alien Invasion game in the "Python Crash Course" book.</h1>
----
 
 <p align="center">
   <img src="./images/game-ex.gif" />
