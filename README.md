@@ -4,6 +4,8 @@
 
 ![Game Gif](images/game-ex.gif)
 
+<img src="./images/game-ex.gif"/>
+
 ## 🔐 Installation
 
 In the project directory, you can run:
