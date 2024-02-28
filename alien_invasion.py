@@ -303,8 +303,8 @@ class AlienInvasion:
                 self.pick_powerup = 0
                 powerup_state["start_time"] = None
                 self.blink = False
-                self.overlaytransparency = 0
-                self.overlay.ncreasing = True
+                self.overlay.transparency = 0
+                self.overlay.increasing = True
                 self.overlay.blink = False
          
 # ----ALIENS---- #
