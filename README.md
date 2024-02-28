@@ -1,10 +1,10 @@
 # 🛸 Alien Invasion
 
-**Description**
-
 ![Game Gif](images/game-ex.gif)
 
-<img src="./images/game-ex.gif"/>
+**Description**
+
+A school project loosely based on the Alien Invasion game in the "Python Crash Course" book.
 
 ## 🔐 Installation
 
