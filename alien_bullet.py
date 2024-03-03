@@ -1,8 +1,24 @@
+import os
+import sys
 import math, random
 import pygame
 from pygame.sprite import Sprite
 
 from ship import Ship
+
+# Check if the application is packaged by PyInstaller
+if getattr(sys, 'frozen', False):
+    # When packaged, use the temporary directory created by PyInstaller
+    base_path = sys._MEIPASS
+else:
+    # When running as a script, use the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+# Define the path to the sounds directory relative to the base directory
+images_dir = os.path.join(base_path, 'images')
+
+# Define the paths to the sound files relative to the sounds directory
+images_path = os.path.join(images_dir, 'alien-bullet.bmp')
 
 class Alien_Bullet(Sprite):
     def __init__(self, ai_game, aliens, angle):
@@ -12,8 +28,8 @@ class Alien_Bullet(Sprite):
         self.settings = ai_game.settings
 
         # Load and transform bullet image
-        self.original_bullet = pygame.image.load('images/alien-bullet.bmp').convert()
-        self.bullet = pygame.image.load('images/alien-bullet.bmp')
+        self.original_bullet = pygame.image.load(images_path).convert()
+        self.bullet = pygame.image.load(images_path)
         self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1.5)
         self.rect = self.bullet.get_rect()
 

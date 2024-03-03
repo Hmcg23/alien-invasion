@@ -1,0 +1,2031 @@
+('/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+ 'Programming/alien_invasion/dist/alien_invasion',
+ False,
+ False,
+ False,
+ ['/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+  'Programming/alien_invasion/CFE.icns'],
+ None,
+ False,
+ False,
+ None,
+ True,
+ False,
+ 'arm64',
+ None,
+ None,
+ '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+ 'Programming/alien_invasion/build/alien_invasion/alien_invasion.pkg',
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/PYZ-00.pyz',
+   'PYZ'),
+  ('lib-dynload/_struct.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_struct.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/zlib.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/zlib.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('struct',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/localpycs/struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/localpycs/pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/localpycs/pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/localpycs/pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/site-packages/PyInstaller/loader/pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/site-packages/PyInstaller/hooks/rthooks/pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgres',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgres.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('alien_invasion',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/alien_invasion.py',
+   'PYSOURCE'),
+  ('libpython3.11.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libpython3.11.dylib',
+   'BINARY'),
+  ('lib-dynload/_typing.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_typing.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/grp.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/grp.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/resource.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/resource.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_lzma.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_lzma.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_bz2.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_bz2.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/unicodedata.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/unicodedata.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_datetime.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_datetime.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/math.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/math.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/array.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/array.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/select.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/select.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_socket.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_socket.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_csv.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_csv.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/binascii.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/binascii.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_opcode.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_opcode.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_posixsubprocess.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/fcntl.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/fcntl.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_pickle.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_pickle.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_ctypes.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_ctypes.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_queue.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_queue.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_scproxy.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_scproxy.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/termios.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/termios.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_ssl.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_ssl.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_hashlib.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_hashlib.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_sha3.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_sha3.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_blake2.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_blake2.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_sha512.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_sha512.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_sha256.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_sha256.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_md5.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_md5.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_sha1.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_sha1.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_bisect.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_bisect.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/pyexpat.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/pyexpat.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_multibytecodec.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_multibytecodec.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_jp.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_jp.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_kr.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_kr.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_iso2022.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_iso2022.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_cn.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_cn.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_tw.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_tw.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_codecs_hk.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_codecs_hk.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_heapq.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_heapq.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/mask.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/mask.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/time.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/time.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/rect.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/rect.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/font.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/font.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/imageext.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/imageext.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/scrap.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/scrap.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/mixer.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/mixer.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/mixer_music.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/mixer_music.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/_freetype.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/_freetype.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/transform.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/transform.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/pixelarray.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/pixelarray.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/surface.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/surface.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/pixelcopy.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/pixelcopy.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/mouse.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/mouse.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/key.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/key.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/joystick.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/joystick.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/image.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/image.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/event.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/event.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/draw.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/draw.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/display.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/display.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/math.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/math.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/bufferproxy.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/bufferproxy.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/color.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/color.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/surflock.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/surflock.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/rwobject.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/rwobject.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/constants.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/constants.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('pygame/base.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/base.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_json.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_json.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_statistics.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_statistics.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_contextvars.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_contextvars.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_decimal.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_decimal.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('lib-dynload/_random.cpython-311-darwin.so',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/lib-dynload/_random.cpython-311-darwin.so',
+   'EXTENSION'),
+  ('libz.1.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libz.1.dylib',
+   'BINARY'),
+  ('liblzma.5.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/liblzma.5.dylib',
+   'BINARY'),
+  ('libbz2.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libbz2.dylib',
+   'BINARY'),
+  ('libffi.8.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libffi.8.dylib',
+   'BINARY'),
+  ('libcrypto.3.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libcrypto.3.dylib',
+   'BINARY'),
+  ('libssl.3.dylib',
+   '/Users/hudsonmcgough/miniconda3/lib/libssl.3.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libSDL2-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libSDL2-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libSDL2_ttf-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libSDL2_ttf-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libSDL2_image-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libSDL2_image-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libjpeg.62.3.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libjpeg.62.3.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libpng16.16.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libpng16.16.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libSDL2_mixer-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libSDL2_mixer-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libfreetype.6.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libfreetype.6.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libz.1.2.11.zlib-ng.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libz.1.2.11.zlib-ng.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libsharpyuv.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libsharpyuv.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libwebp.7.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libwebp.7.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libtiff.5.8.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libtiff.5.8.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libmpg123.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libmpg123.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libvorbisfile.3.3.8.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libvorbisfile.3.3.8.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libfluidsynth.3.1.1.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libfluidsynth.3.1.1.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libmodplug.1.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libmodplug.1.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libopus.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libopus.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libFLAC.8.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libFLAC.8.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libopusfile.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libopusfile.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libogg.0.8.5.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libogg.0.8.5.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libbrotlidec.1.0.9.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libbrotlidec.1.0.9.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libvorbis.0.4.9.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libvorbis.0.4.9.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libgthread-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libgthread-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libsndfile.1.0.34.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libsndfile.1.0.34.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libglib-2.0.0.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libglib-2.0.0.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libintl.8.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libintl.8.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libbrotlicommon.1.0.9.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libbrotlicommon.1.0.9.dylib',
+   'BINARY'),
+  ('pygame/.dylibs/libvorbisenc.2.0.12.dylib',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/.dylibs/libvorbisenc.2.0.12.dylib',
+   'BINARY'),
+  ('fonts/pixel.TTF',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/fonts/pixel.TTF',
+   'DATA'),
+  ('images/alien-bullet.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/alien-bullet.bmp',
+   'DATA'),
+  ('images/alien.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/alien.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-0.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-0.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-1.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-1.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-10.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-10.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-100.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-100.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-101.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-101.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-102.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-102.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-103.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-103.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-104.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-104.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-105.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-105.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-106.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-106.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-107.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-107.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-108.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-108.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-109.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-109.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-11.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-11.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-110.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-110.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-111.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-111.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-112.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-112.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-113.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-113.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-114.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-114.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-115.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-115.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-116.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-116.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-117.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-117.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-118.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-118.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-119.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-119.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-12.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-12.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-120.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-120.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-121.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-121.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-122.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-122.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-123.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-123.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-124.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-124.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-125.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-125.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-126.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-126.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-127.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-127.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-128.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-128.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-129.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-129.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-13.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-13.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-130.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-130.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-131.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-131.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-132.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-132.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-133.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-133.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-134.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-134.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-135.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-135.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-136.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-136.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-137.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-137.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-138.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-138.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-139.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-139.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-14.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-14.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-140.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-140.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-141.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-141.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-142.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-142.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-143.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-143.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-144.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-144.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-145.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-145.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-146.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-146.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-147.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-147.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-148.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-148.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-149.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-149.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-15.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-15.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-150.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-150.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-151.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-151.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-152.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-152.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-153.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-153.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-154.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-154.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-155.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-155.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-156.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-156.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-157.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-157.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-158.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-158.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-159.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-159.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-16.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-16.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-160.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-160.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-161.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-161.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-162.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-162.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-163.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-163.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-164.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-164.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-165.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-165.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-166.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-166.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-167.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-167.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-168.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-168.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-169.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-169.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-17.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-17.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-170.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-170.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-171.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-171.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-172.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-172.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-173.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-173.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-174.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-174.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-175.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-175.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-176.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-176.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-177.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-177.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-178.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-178.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-179.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-179.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-18.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-18.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-180.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-180.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-181.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-181.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-182.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-182.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-183.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-183.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-184.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-184.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-185.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-185.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-186.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-186.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-187.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-187.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-188.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-188.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-189.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-189.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-19.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-19.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-190.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-190.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-191.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-191.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-192.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-192.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-193.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-193.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-194.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-194.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-195.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-195.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-196.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-196.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-197.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-197.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-198.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-198.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-199.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-199.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-2.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-2.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-20.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-20.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-200.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-200.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-201.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-201.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-202.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-202.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-203.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-203.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-204.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-204.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-205.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-205.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-206.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-206.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-207.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-207.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-208.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-208.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-209.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-209.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-21.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-21.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-210.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-210.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-211.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-211.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-212.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-212.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-213.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-213.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-214.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-214.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-215.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-215.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-216.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-216.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-217.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-217.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-218.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-218.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-219.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-219.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-22.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-22.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-220.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-220.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-221.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-221.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-222.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-222.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-223.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-223.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-224.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-224.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-225.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-225.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-226.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-226.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-227.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-227.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-228.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-228.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-229.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-229.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-23.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-23.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-230.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-230.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-231.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-231.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-232.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-232.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-233.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-233.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-234.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-234.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-235.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-235.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-236.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-236.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-237.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-237.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-238.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-238.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-239.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-239.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-24.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-24.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-240.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-240.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-241.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-241.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-242.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-242.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-243.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-243.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-244.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-244.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-245.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-245.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-246.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-246.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-247.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-247.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-248.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-248.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-249.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-249.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-25.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-25.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-250.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-250.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-251.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-251.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-252.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-252.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-253.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-253.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-254.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-254.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-255.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-255.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-256.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-256.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-257.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-257.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-258.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-258.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-259.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-259.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-26.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-26.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-260.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-260.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-261.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-261.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-262.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-262.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-263.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-263.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-264.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-264.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-265.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-265.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-266.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-266.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-267.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-267.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-268.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-268.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-269.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-269.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-27.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-27.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-270.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-270.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-271.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-271.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-272.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-272.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-273.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-273.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-274.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-274.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-275.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-275.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-276.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-276.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-277.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-277.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-278.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-278.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-279.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-279.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-28.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-28.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-280.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-280.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-281.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-281.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-282.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-282.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-283.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-283.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-284.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-284.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-285.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-285.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-286.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-286.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-287.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-287.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-288.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-288.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-289.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-289.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-29.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-29.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-290.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-290.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-291.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-291.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-292.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-292.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-293.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-293.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-294.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-294.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-295.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-295.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-296.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-296.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-297.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-297.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-298.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-298.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-299.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-299.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-3.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-3.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-30.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-30.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-300.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-300.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-301.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-301.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-302.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-302.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-303.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-303.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-304.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-304.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-305.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-305.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-306.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-306.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-307.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-307.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-308.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-308.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-309.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-309.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-31.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-31.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-310.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-310.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-311.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-311.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-312.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-312.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-313.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-313.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-314.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-314.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-315.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-315.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-316.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-316.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-317.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-317.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-318.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-318.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-319.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-319.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-32.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-32.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-320.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-320.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-321.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-321.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-322.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-322.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-323.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-323.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-324.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-324.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-325.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-325.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-326.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-326.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-327.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-327.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-328.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-328.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-329.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-329.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-33.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-33.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-330.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-330.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-331.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-331.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-332.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-332.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-333.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-333.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-334.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-334.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-335.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-335.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-336.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-336.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-337.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-337.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-338.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-338.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-339.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-339.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-34.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-34.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-340.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-340.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-341.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-341.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-342.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-342.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-343.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-343.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-344.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-344.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-345.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-345.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-346.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-346.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-347.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-347.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-348.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-348.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-349.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-349.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-35.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-35.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-350.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-350.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-351.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-351.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-352.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-352.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-353.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-353.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-354.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-354.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-355.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-355.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-356.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-356.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-357.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-357.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-358.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-358.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-359.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-359.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-36.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-36.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-360.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-360.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-361.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-361.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-362.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-362.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-363.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-363.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-364.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-364.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-365.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-365.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-366.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-366.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-367.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-367.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-368.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-368.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-369.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-369.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-37.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-37.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-370.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-370.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-371.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-371.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-372.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-372.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-373.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-373.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-374.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-374.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-375.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-375.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-376.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-376.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-38.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-38.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-39.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-39.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-4.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-4.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-40.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-40.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-41.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-41.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-42.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-42.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-43.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-43.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-44.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-44.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-45.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-45.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-46.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-46.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-47.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-47.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-48.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-48.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-49.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-49.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-5.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-5.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-50.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-50.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-51.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-51.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-52.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-52.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-53.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-53.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-54.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-54.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-55.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-55.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-56.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-56.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-57.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-57.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-58.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-58.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-59.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-59.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-6.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-6.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-60.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-60.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-61.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-61.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-62.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-62.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-63.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-63.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-64.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-64.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-65.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-65.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-66.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-66.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-67.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-67.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-68.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-68.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-69.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-69.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-7.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-7.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-70.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-70.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-71.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-71.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-72.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-72.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-73.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-73.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-74.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-74.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-75.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-75.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-76.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-76.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-77.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-77.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-78.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-78.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-79.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-79.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-8.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-8.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-80.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-80.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-81.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-81.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-82.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-82.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-83.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-83.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-84.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-84.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-85.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-85.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-86.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-86.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-87.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-87.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-88.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-88.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-89.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-89.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-9.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-9.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-90.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-90.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-91.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-91.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-92.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-92.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-93.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-93.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-94.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-94.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-95.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-95.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-96.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-96.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-97.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-97.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-98.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-98.bmp',
+   'DATA'),
+  ('images/background/galaxy-bg-resize-99.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/background/galaxy-bg-resize-99.bmp',
+   'DATA'),
+  ('images/bullet.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/bullet.bmp',
+   'DATA'),
+  ('images/game-ex.gif',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/game-ex.gif',
+   'DATA'),
+  ('images/heart.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/heart.bmp',
+   'DATA'),
+  ('images/mystery-powerup.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/mystery-powerup.bmp',
+   'DATA'),
+  ('images/space-bg.gif',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/space-bg.gif',
+   'DATA'),
+  ('images/spaceship-yellow.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/spaceship-yellow.bmp',
+   'DATA'),
+  ('images/spaceship.bmp',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/images/spaceship.bmp',
+   'DATA'),
+  ('sounds/Space - Magic Fly ( 8-bit Sounds ).mp3',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/Space - Magic Fly ( 8-bit Sounds ).mp3',
+   'DATA'),
+  ('sounds/blipSelect.wav',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/blipSelect.wav',
+   'DATA'),
+  ('sounds/death-sound.mp3',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/death-sound.mp3',
+   'DATA'),
+  ('sounds/explosion.wav',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/explosion.wav',
+   'DATA'),
+  ('sounds/game-start.mp3',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/game-start.mp3',
+   'DATA'),
+  ('sounds/hitHurt.wav',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/hitHurt.wav',
+   'DATA'),
+  ('sounds/level-up.mp3',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/level-up.mp3',
+   'DATA'),
+  ('sounds/power-up.mp3',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/power-up.mp3',
+   'DATA'),
+  ('sounds/shoot.wav',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/shoot.wav',
+   'DATA'),
+  ('sounds/siren.wav',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/sounds/siren.wav',
+   'DATA'),
+  ('base_library.zip',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/build/alien_invasion/base_library.zip',
+   'DATA'),
+  ('pygame/pygame_icon_mac.bmp',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/pygame_icon_mac.bmp',
+   'DATA'),
+  ('pygame/freesansbold.ttf',
+   '/Users/hudsonmcgough/.local/lib/python3.11/site-packages/pygame/freesansbold.ttf',
+   'DATA'),
+  ('libSDL2-2.0.0.dylib', 'pygame/.dylibs/libSDL2-2.0.0.dylib', 'SYMLINK'),
+  ('libSDL2_ttf-2.0.0.dylib',
+   'pygame/.dylibs/libSDL2_ttf-2.0.0.dylib',
+   'SYMLINK'),
+  ('libSDL2_image-2.0.0.dylib',
+   'pygame/.dylibs/libSDL2_image-2.0.0.dylib',
+   'SYMLINK'),
+  ('libjpeg.62.3.0.dylib', 'pygame/.dylibs/libjpeg.62.3.0.dylib', 'SYMLINK'),
+  ('libpng16.16.dylib', 'pygame/.dylibs/libpng16.16.dylib', 'SYMLINK'),
+  ('libSDL2_mixer-2.0.0.dylib',
+   'pygame/.dylibs/libSDL2_mixer-2.0.0.dylib',
+   'SYMLINK'),
+  ('libfreetype.6.dylib', 'pygame/.dylibs/libfreetype.6.dylib', 'SYMLINK'),
+  ('libz.1.2.11.zlib-ng.dylib',
+   'pygame/.dylibs/libz.1.2.11.zlib-ng.dylib',
+   'SYMLINK'),
+  ('libsharpyuv.0.dylib', 'pygame/.dylibs/libsharpyuv.0.dylib', 'SYMLINK'),
+  ('libwebp.7.dylib', 'pygame/.dylibs/libwebp.7.dylib', 'SYMLINK'),
+  ('libtiff.5.8.0.dylib', 'pygame/.dylibs/libtiff.5.8.0.dylib', 'SYMLINK'),
+  ('libmpg123.0.dylib', 'pygame/.dylibs/libmpg123.0.dylib', 'SYMLINK'),
+  ('libvorbisfile.3.3.8.dylib',
+   'pygame/.dylibs/libvorbisfile.3.3.8.dylib',
+   'SYMLINK'),
+  ('libfluidsynth.3.1.1.dylib',
+   'pygame/.dylibs/libfluidsynth.3.1.1.dylib',
+   'SYMLINK'),
+  ('libmodplug.1.dylib', 'pygame/.dylibs/libmodplug.1.dylib', 'SYMLINK'),
+  ('libopus.0.dylib', 'pygame/.dylibs/libopus.0.dylib', 'SYMLINK'),
+  ('libFLAC.8.dylib', 'pygame/.dylibs/libFLAC.8.dylib', 'SYMLINK'),
+  ('libopusfile.0.dylib', 'pygame/.dylibs/libopusfile.0.dylib', 'SYMLINK'),
+  ('libogg.0.8.5.dylib', 'pygame/.dylibs/libogg.0.8.5.dylib', 'SYMLINK'),
+  ('libbrotlidec.1.0.9.dylib',
+   'pygame/.dylibs/libbrotlidec.1.0.9.dylib',
+   'SYMLINK'),
+  ('libvorbis.0.4.9.dylib', 'pygame/.dylibs/libvorbis.0.4.9.dylib', 'SYMLINK'),
+  ('libgthread-2.0.0.dylib',
+   'pygame/.dylibs/libgthread-2.0.0.dylib',
+   'SYMLINK'),
+  ('libsndfile.1.0.34.dylib',
+   'pygame/.dylibs/libsndfile.1.0.34.dylib',
+   'SYMLINK'),
+  ('libglib-2.0.0.dylib', 'pygame/.dylibs/libglib-2.0.0.dylib', 'SYMLINK'),
+  ('libintl.8.dylib', 'pygame/.dylibs/libintl.8.dylib', 'SYMLINK'),
+  ('libbrotlicommon.1.0.9.dylib',
+   'pygame/.dylibs/libbrotlicommon.1.0.9.dylib',
+   'SYMLINK'),
+  ('libvorbisenc.2.0.12.dylib',
+   'pygame/.dylibs/libvorbisenc.2.0.12.dylib',
+   'SYMLINK')],
+ [],
+ False,
+ False,
+ 1709352979,
+ [('runw',
+   '/Users/hudsonmcgough/miniconda3/lib/python3.11/site-packages/PyInstaller/bootloader/Darwin-64bit/runw',
+   'EXECUTABLE')],
+ '/Users/hudsonmcgough/miniconda3/lib/libpython3.11.dylib')

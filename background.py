@@ -1,5 +1,18 @@
+import os
+import sys
 import pygame
 from pygame.sprite import Sprite
+
+# Check if the application is packaged by PyInstaller
+if getattr(sys, 'frozen', False):
+    # When packaged, use the temporary directory created by PyInstaller
+    base_path = sys._MEIPASS
+else:
+    # When running as a script, use the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+# Define the path to the sounds directory relative to the base directory
+images_dir = os.path.join(base_path, 'images/background')
 
 class Background(Sprite):
     def __init__(self, ai_game):
@@ -15,8 +28,8 @@ class Background(Sprite):
 
         # Load background images into the sprites list
         for i in range(0, 376):
-            image = f'images/background/galaxy-bg-resize-{i}.bmp'
-            self.sprites.append(pygame.image.load(image))
+            images_path = os.path.join(images_dir, f'galaxy-bg-resize-{i}.bmp')
+            self.sprites.append(pygame.image.load(images_path))
         
         # Initialize current sprite index and set initial background image
         self.current_sprite = 0

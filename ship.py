@@ -1,5 +1,22 @@
+import sys, os
 import pygame
 from pygame.sprite import Sprite
+
+# Check if the application is packaged by PyInstaller
+if getattr(sys, 'frozen', False):
+    # When packaged, use the temporary directory created by PyInstaller
+    base_path = sys._MEIPASS
+else:
+    # When running as a script, use the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+# Define the path to the sounds directory relative to the base directory
+images_dir = os.path.join(base_path, 'images')
+
+# Define the paths to the sound files relative to the sounds directory
+spaceship_path = os.path.join(images_dir, 'spaceship.bmp')
+spaceship_yellow_path = os.path.join(images_dir, 'spaceship-yellow.bmp')
+
 
 class Ship(Sprite):
     def __init__(self, ai_game):
@@ -11,12 +28,12 @@ class Ship(Sprite):
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and set its size
-        self.original_image = pygame.image.load('images/spaceship.bmp').convert_alpha()
+        self.original_image = pygame.image.load(spaceship_path).convert_alpha()
         self.image = pygame.transform.rotozoom(self.original_image, 0, 0.5)
         self.rect = self.image.get_rect()
 
         # Yellow Ship
-        self.original_yellow_image = pygame.image.load('images/spaceship-yellow.bmp').convert_alpha()
+        self.original_yellow_image = pygame.image.load(spaceship_yellow_path).convert_alpha()
         self.yellow_image = pygame.transform.rotozoom(self.original_yellow_image, 0, 0.5)
         self.yellow_rect = self.image.get_rect()
 

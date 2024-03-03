@@ -1,4 +1,20 @@
+import os
+import sys
 import pygame.font
+
+# Check if the application is packaged by PyInstaller
+if getattr(sys, 'frozen', False):
+    # When packaged, use the temporary directory created by PyInstaller
+    base_path = sys._MEIPASS
+else:
+    # When running as a script, use the current directory
+    base_path = os.path.dirname(os.path.abspath(__file__))
+
+# Define the path to the sounds directory relative to the base directory
+fonts_dir = os.path.join(base_path, 'fonts')
+
+# Define the paths to the sound files relative to the sounds directory
+fonts_path = os.path.join(fonts_dir, 'pixel.ttf')
 
 class Button:
     def __init__(self, ai_game, msg, x_position, y_position, width = 200, height = 50):
@@ -13,7 +29,7 @@ class Button:
         self.text_color = (0, 200, 200)
 
         # Load font and set button rectangle
-        self.font = pygame.font.Font("fonts/pixel.ttf", 32)
+        self.font = pygame.font.Font(fonts_path, 32)
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         
         # Set button position
