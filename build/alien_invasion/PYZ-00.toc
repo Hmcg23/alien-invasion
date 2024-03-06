@@ -55,6 +55,10 @@
   ('base64',
    '/Users/hudsonmcgough/miniconda3/lib/python3.11/base64.py',
    'PYMODULE'),
+  ('base_path',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/base_path.py',
+   'PYMODULE'),
   ('bisect',
    '/Users/hudsonmcgough/miniconda3/lib/python3.11/bisect.py',
    'PYMODULE'),

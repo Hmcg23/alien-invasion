@@ -1,5 +1,4 @@
 import os
-import pygame
 import sys
 
 def get_base_path():
