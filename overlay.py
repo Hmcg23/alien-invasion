@@ -1,5 +1,4 @@
 import pygame
-import sounds
 
 class Overlay:
     def __init__(self, ai_game):

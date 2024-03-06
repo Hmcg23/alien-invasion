@@ -1,23 +1,9 @@
-import os
-import sys
 import pygame.font
 from pygame.sprite import Group
-
 from heart import Heart
+from base_path import *
 
-# Check if the application is packaged by PyInstaller
-if getattr(sys, 'frozen', False):
-    # When packaged, use the temporary directory created by PyInstaller
-    base_path = sys._MEIPASS
-else:
-    # When running as a script, use the current directory
-    base_path = os.path.dirname(os.path.abspath(__file__))
-
-# Define the path to the sounds directory relative to the base directory
-fonts_dir = os.path.join(base_path, 'fonts')
-
-# Define the paths to the sound files relative to the sounds directory
-fonts_path = os.path.join(fonts_dir, 'pixel.ttf')
+fonts_path = get_file_path('fonts', 'pixel.ttf')
 
 class Scoreboard:
     def __init__(self, ai_game):
