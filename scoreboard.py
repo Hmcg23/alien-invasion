@@ -1,7 +1,9 @@
 import pygame.font
 from pygame.sprite import Group
-
 from heart import Heart
+from base_path import *
+
+fonts_path = get_file_path('fonts', 'pixel.ttf')
 
 class Scoreboard:
     def __init__(self, ai_game):
@@ -15,7 +17,7 @@ class Scoreboard:
 
         # Text color and font
         self.text_color = (255, 255, 255)
-        self.font = pygame.font.Font("fonts/pixel.ttf", 32)
+        self.font = pygame.font.Font(fonts_path, 32)
 
         # Prepare initial scoreboard elements
         self.prep_score()

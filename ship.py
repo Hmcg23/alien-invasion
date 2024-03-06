@@ -1,5 +1,9 @@
 import pygame
 from pygame.sprite import Sprite
+from base_path import *
+
+spaceship_path = get_file_path('images', 'spaceship.bmp')
+spaceship_yellow_path = get_file_path('images', 'spaceship-yellow.bmp')
 
 class Ship(Sprite):
     def __init__(self, ai_game):
@@ -11,12 +15,12 @@ class Ship(Sprite):
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and set its size
-        self.original_image = pygame.image.load('images/spaceship.bmp').convert_alpha()
+        self.original_image = pygame.image.load(spaceship_path).convert_alpha()
         self.image = pygame.transform.rotozoom(self.original_image, 0, 0.5)
         self.rect = self.image.get_rect()
 
         # Yellow Ship
-        self.original_yellow_image = pygame.image.load('images/spaceship-yellow.bmp').convert_alpha()
+        self.original_yellow_image = pygame.image.load(spaceship_yellow_path).convert_alpha()
         self.yellow_image = pygame.transform.rotozoom(self.original_yellow_image, 0, 0.5)
         self.yellow_rect = self.image.get_rect()
 

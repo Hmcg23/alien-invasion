@@ -1,4 +1,7 @@
 import pygame.font
+from base_path import *
+
+fonts_path = get_file_path('fonts', 'pixel.ttf')
 
 class Button:
     def __init__(self, ai_game, msg, x_position, y_position, width = 200, height = 50):
@@ -13,7 +16,7 @@ class Button:
         self.text_color = (0, 200, 200)
 
         # Load font and set button rectangle
-        self.font = pygame.font.Font("fonts/pixel.ttf", 32)
+        self.font = pygame.font.Font(fonts_path, 32)
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         
         # Set button position

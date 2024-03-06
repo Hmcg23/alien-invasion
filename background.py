@@ -1,5 +1,8 @@
 import pygame
 from pygame.sprite import Sprite
+from base_path import *
+
+images_path = get_file_path('images/background', 'mystery-powerup.bmp')
 
 class Background(Sprite):
     def __init__(self, ai_game):
@@ -15,8 +18,8 @@ class Background(Sprite):
 
         # Load background images into the sprites list
         for i in range(0, 376):
-            image = f'images/background/galaxy-bg-resize-{i}.bmp'
-            self.sprites.append(pygame.image.load(image))
+            images_path = get_file_path('images/background', f'galaxy-bg-resize-{i}.bmp')
+            self.sprites.append(pygame.image.load(images_path))
         
         # Initialize current sprite index and set initial background image
         self.current_sprite = 0

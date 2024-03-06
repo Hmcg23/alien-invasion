@@ -1,8 +1,14 @@
+import os
+import sys
 import math, random
 import pygame
 from pygame.sprite import Sprite
 
 from ship import Ship
+
+from base_path import *
+
+images_path = get_file_path('images', 'alien-bullet.bmp')
 
 class Alien_Bullet(Sprite):
     def __init__(self, ai_game, aliens, angle):
@@ -12,8 +18,8 @@ class Alien_Bullet(Sprite):
         self.settings = ai_game.settings
 
         # Load and transform bullet image
-        self.original_bullet = pygame.image.load('images/alien-bullet.bmp').convert()
-        self.bullet = pygame.image.load('images/alien-bullet.bmp')
+        self.original_bullet = pygame.image.load(images_path).convert()
+        self.bullet = pygame.image.load(images_path)
         self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1.5)
         self.rect = self.bullet.get_rect()
 

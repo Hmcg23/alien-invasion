@@ -1,8 +1,9 @@
-import math, random
+import math
 import pygame
 from pygame.sprite import Sprite
+from base_path import *
 
-from ship import Ship
+images_path = get_file_path('images', 'bullet.bmp')
 
 class Bullet(Sprite):
     def __init__(self, ai_game, x, y, angle):
@@ -12,11 +13,11 @@ class Bullet(Sprite):
         self.settings = ai_game.settings
 
         # Load and transform bullet image
-        self.original_bullet = pygame.image.load('images/bullet.bmp').convert_alpha()
+        self.original_bullet = pygame.image.load(images_path).convert_alpha()
         self.bullet = pygame.transform.rotozoom(self.original_bullet, 90, 1)
         self.rect = self.bullet.get_rect()
 
-        self.original_bullet_yellow = pygame.image.load('images/bullet.bmp').convert_alpha()
+        self.original_bullet_yellow = pygame.image.load(images_path).convert_alpha()
 
         for y_pos in range(self.original_bullet_yellow.get_height()):
             for x_pos in range(self.original_bullet_yellow.get_width()):

@@ -1,0 +1,4 @@
+([('alien_invasion',
+   '/Users/hudsonmcgough/Desktop/Loyola - School/Computer '
+   'Programming/alien_invasion/dist/alien_invasion',
+   'EXECUTABLE')],)

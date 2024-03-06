@@ -549,6 +549,7 @@ class AlienInvasion:
             sounds.death_sound.play()
             self.game_active = False
             pygame.mouse.set_visible(True)
+            self.blink = False
 
             # Reset Powerups
             self.powerup_states = {

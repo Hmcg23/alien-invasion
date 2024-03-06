@@ -1,6 +1,9 @@
-import math, random
+import random
 import pygame
 from pygame.sprite import Sprite
+from base_path import *
+
+images_path = get_file_path('images', 'mystery-powerup.bmp')
 
 
 class Powerup(Sprite):
@@ -10,8 +13,8 @@ class Powerup(Sprite):
         self.settings = ai_game.settings
 
         # Load and transform image image
-        self.original_image = pygame.image.load('images/mystery-powerup.bmp').convert()
-        self.image = pygame.image.load('images/mystery-powerup.bmp')
+        self.original_image = pygame.image.load(images_path).convert()
+        self.image = pygame.image.load(images_path)
         self.image = pygame.transform.rotozoom(self.image, 0, 0.05)
         self.rect = self.image.get_rect()
 
