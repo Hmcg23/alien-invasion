@@ -20,7 +20,7 @@ class Alien_Bullet(Sprite):
         # Load and transform bullet image
         self.original_bullet = pygame.image.load(images_path).convert()
         self.bullet = pygame.image.load(images_path)
-        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 1.5)
+        self.bullet = pygame.transform.rotozoom(self.bullet, 90, 5)
         self.rect = self.bullet.get_rect()
 
         self.ship = Ship(self)

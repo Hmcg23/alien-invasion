@@ -1,4 +1,4 @@
-import sys, random, time
+import sys, random
 from time import sleep
 import json
 from pathlib import Path
@@ -88,6 +88,8 @@ class AlienInvasion:
 
         self.blink = False
 
+        self.pause = False
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -95,26 +97,27 @@ class AlienInvasion:
             for event in pygame.event.get():
                 self._check_events(event)
             # Update game elements if game is active
-            if self.game_active:
-                self.ship.update()
-                self._update_bullets()
-                self._update_alien_bullets()
-                # self._update_aliens()
+            if self.pause == False:
+                if self.game_active:
+                    self.ship.update()
+                    self._update_bullets()
+                    self._update_alien_bullets()
+                    # self._update_aliens()
 
-                # Powerup Functions
-                self._aliens_freeze_powerup()
+                    # Powerup Functions
+                    self._aliens_freeze_powerup()
 
-                self._activate_powerup()
-                self._update_powerup()
+                    self._activate_powerup()
+                    self._update_powerup()
 
-            # Draw background images
-            self.background_images.draw(self.screen)
-            self.background_images.update()
+                # Draw background images
+                self.background_images.draw(self.screen)
+                self.background_images.update()
 
-            # Update screen
-            self._update_screen()
-            # Control frame rate
-            self.clock.tick(60)
+                # Update screen
+                self._update_screen()                
+                # Control frame rate
+                self.clock.tick(60)
 
 # ----CHECK EVENTS---- #
                         
@@ -146,10 +149,12 @@ class AlienInvasion:
             self._close_game()
         elif event.key == pygame.K_SPACE:
             self._double_bullet_powerup()
-        elif event.key == pygame.K_m:
-            pygame.mixer.pause()
         elif event.key == pygame.K_p:
+            pygame.mixer.pause()
+            self.pause = True
+        elif event.key == pygame.K_u:
             pygame.mixer.unpause()
+            self.pause = False
 
     def _check_keyup_events(self, event):
         """Respond to key releases."""
@@ -591,7 +596,6 @@ class AlienInvasion:
             self.easy_button.draw_button(self.screen, (0, 255, 255))
             self.medium_button.draw_button(self.screen, (0, 255, 255))
             self.hard_button.draw_button(self.screen, (0, 255, 255))
-            
             
         # Display the most recent screen
         pygame.display.flip()
