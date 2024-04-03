@@ -1,4 +1,4 @@
-import sys, random, time
+import sys, random
 from time import sleep
 import json
 from pathlib import Path
@@ -15,6 +15,7 @@ from ship import Ship
 from bullet import Bullet
 from alien_bullet import Alien_Bullet
 from alien import Alien
+from shield import Shield
 from background import Background
 from powerup import Powerup
 
@@ -47,6 +48,9 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
         self.alien_bullets = pygame.sprite.Group()
         self.powerups = pygame.sprite.Group()
+
+        # test - shields
+        self.shields = pygame.sprite.Group()
 
         # Create background images and add the background
         self.background_images = pygame.sprite.Group()
@@ -88,6 +92,8 @@ class AlienInvasion:
 
         self.blink = False
 
+        self.pause = False
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -95,26 +101,27 @@ class AlienInvasion:
             for event in pygame.event.get():
                 self._check_events(event)
             # Update game elements if game is active
-            if self.game_active:
-                self.ship.update()
-                self._update_bullets()
-                self._update_alien_bullets()
-                # self._update_aliens()
+            if self.pause == False:
+                if self.game_active:
+                    self.ship.update()
+                    self._update_bullets()
+                    self._update_alien_bullets()
+                    self._update_shields()
 
-                # Powerup Functions
-                self._aliens_freeze_powerup()
+                    # Powerup Functions
+                    self._aliens_freeze_powerup()
 
-                self._activate_powerup()
-                self._update_powerup()
+                    self._activate_powerup()
+                    self._update_powerup()
 
-            # Draw background images
-            self.background_images.draw(self.screen)
-            self.background_images.update()
+                # Draw background images
+                self.background_images.draw(self.screen)
+                self.background_images.update()
 
-            # Update screen
-            self._update_screen()
-            # Control frame rate
-            self.clock.tick(60)
+                # Update screen
+                self._update_screen()                
+                # Control frame rate
+                self.clock.tick(60)
 
 # ----CHECK EVENTS---- #
                         
@@ -146,10 +153,12 @@ class AlienInvasion:
             self._close_game()
         elif event.key == pygame.K_SPACE:
             self._double_bullet_powerup()
-        elif event.key == pygame.K_m:
-            pygame.mixer.pause()
         elif event.key == pygame.K_p:
+            pygame.mixer.pause()
+            self.pause = True
+        elif event.key == pygame.K_u:
             pygame.mixer.unpause()
+            self.pause = False
 
     def _check_keyup_events(self, event):
         """Respond to key releases."""
@@ -184,6 +193,7 @@ class AlienInvasion:
                 self.alien_bullets.empty()
                 self.aliens.empty()
                 self._create_fleet()
+                self._create_shield_wall()
                 self.ship.center_ship()
 
                 pygame.mouse.set_visible(False)
@@ -307,8 +317,38 @@ class AlienInvasion:
                 self.overlay.increasing = True
                 self.overlay.blink = False
          
+# ----SHIELDS---- #
+    def _create_shield_wall(self):
+        pass
+        """Create the wall of shields."""
+        # Create a shield and find the number of shields in a row
+        shield = Shield(self)
+        shield_width, shield_height = shield.rect.size
+
+        # Spacing between each ship 
+        current_x, current_y = shield_width, shield_height
+        while current_x < (self.settings.screen_width - shield_width):
+            # Create an ship and place it in the row
+            self._create_shield(current_x)
+            current_x += 1.3 * shield_width
+                    
+        current_x = shield_width
+        current_y += shield_height
+
+    def _create_shield(self, x_position):
+        new_shield = Shield(self)
+        new_shield.x = x_position
+        new_shield.y = 700
+
+        new_shield.rect.x = x_position
+        new_shield.rect.y = 700
+        self.shields.add(new_shield)
+    
+    def _update_shields(self):
+        """Update the positions of all aliens in the fleet."""
+        self.shields.update()
+
 # ----ALIENS---- #
-      
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row
@@ -429,6 +469,7 @@ class AlienInvasion:
             # Check for any bullets that have hit aliens
             collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
             pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
+            pygame.sprite.groupcollide(self.shields, self.alien_bullets, True, True)
 
             if collisions:
                 for aliens in collisions.values():
@@ -444,6 +485,7 @@ class AlienInvasion:
             # Check for any bullets that have hit aliens
             collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
             pygame.sprite.groupcollide(self.bullets, self.alien_bullets, False, True)
+            pygame.sprite.groupcollide(self.shields, self.alien_bullets, True, True)
 
             if collisions:
                 for aliens in collisions.values():
@@ -578,6 +620,7 @@ class AlienInvasion:
         
         self._do_powerup(4, 5000, self.ship.blitme, self.ship.blitme_yellow)
         self.aliens.draw(self.screen)
+        self.shields.draw(self.screen)
 
         self.overlay.blink_overlay(self.screen, self.blink)
         
@@ -591,7 +634,6 @@ class AlienInvasion:
             self.easy_button.draw_button(self.screen, (0, 255, 255))
             self.medium_button.draw_button(self.screen, (0, 255, 255))
             self.hard_button.draw_button(self.screen, (0, 255, 255))
-            
             
         # Display the most recent screen
         pygame.display.flip()
