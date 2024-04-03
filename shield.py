@@ -27,7 +27,7 @@ class Shield(Sprite):
         self.x = float(self.rect.x)
         self.y = float(self.rect.y)
         self.amplitude = random.randint(10, 15)
-        self.frequency = random.uniform(0.005, 0.01)
+        self.frequency = random.uniform(0.005, 0.007)
     
     def blitme(self):
         """Draw the bullet on the screen."""

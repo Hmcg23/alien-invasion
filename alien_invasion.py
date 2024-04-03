@@ -327,10 +327,10 @@ class AlienInvasion:
 
         # Spacing between each ship 
         current_x, current_y = shield_width, shield_height
-        while current_x < (self.settings.screen_width - 2 * shield_width):
+        while current_x < (self.settings.screen_width - shield_width):
             # Create an ship and place it in the row
             self._create_shield(current_x)
-            current_x += 2 * shield_width
+            current_x += 1.3 * shield_width
                     
         current_x = shield_width
         current_y += shield_height
@@ -469,6 +469,7 @@ class AlienInvasion:
             # Check for any bullets that have hit aliens
             collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
             pygame.sprite.groupcollide(self.bullets, self.alien_bullets, True, True)
+            pygame.sprite.groupcollide(self.shields, self.alien_bullets, True, True)
 
             if collisions:
                 for aliens in collisions.values():
@@ -484,6 +485,7 @@ class AlienInvasion:
             # Check for any bullets that have hit aliens
             collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
             pygame.sprite.groupcollide(self.bullets, self.alien_bullets, False, True)
+            pygame.sprite.groupcollide(self.shields, self.alien_bullets, True, True)
 
             if collisions:
                 for aliens in collisions.values():
