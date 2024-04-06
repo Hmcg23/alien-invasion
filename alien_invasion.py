@@ -87,7 +87,8 @@ class AlienInvasion:
             1: {"activated": False, "start_time": None},
             2: {"activated": False, "start_time": None},
             3: {"activated": False, "start_time": None},
-            4: {"activated": False, "start_time": None}
+            4: {"activated": False, "start_time": None},
+            5: {"activated": False, "start_time": None}
         }
 
         self.blink = False
@@ -107,6 +108,7 @@ class AlienInvasion:
                     self._update_bullets()
                     self._update_alien_bullets()
                     self._update_shields()
+                    self._shields_powerup()
 
                     # Powerup Functions
                     self._aliens_freeze_powerup()
@@ -193,7 +195,6 @@ class AlienInvasion:
                 self.alien_bullets.empty()
                 self.aliens.empty()
                 self._create_fleet()
-                self._create_shield_wall()
                 self.ship.center_ship()
 
                 pygame.mouse.set_visible(False)
@@ -283,7 +284,9 @@ class AlienInvasion:
             if pygame.sprite.spritecollideany(self.ship, self.powerups):
                 sounds.power_up.set_volume(0.5)
                 sounds.power_up.play()
-                self.pick_powerup = random.randint(1, 4)
+                self.pick_powerup = random.randint(1, 5)
+                if self.pick_powerup == 5:
+                    self._create_shield_wall()
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
 
@@ -316,11 +319,11 @@ class AlienInvasion:
                 self.overlay.transparency = 0
                 self.overlay.increasing = True
                 self.overlay.blink = False
+                self.remove_shields()
          
 # ----SHIELDS---- #
 
     def _create_shield_wall(self):
-        pass
         """Create the wall of shields."""
         # Create a shield and find the number of shields in a row
         shield = Shield(self)
@@ -345,9 +348,15 @@ class AlienInvasion:
         new_shield.rect.y = 700
         self.shields.add(new_shield)
     
+    def remove_shields(self):
+        self.shields.empty()
+    
     def _update_shields(self):
         """Update the positions of all aliens in the fleet."""
         self.shields.update()
+    
+    def _shields_powerup(self):
+        self._do_powerup(5, 30000, self._update_shields)
 
 # ----ALIENS---- #
 
@@ -598,7 +607,8 @@ class AlienInvasion:
                 1: {"activated": False, "start_time": None},
                 2: {"activated": False, "start_time": None},
                 3: {"activated": False, "start_time": None},
-                4: {"activated": False, "start_time": None}
+                4: {"activated": False, "start_time": None},
+                5: {"activated": False, "start_time": None}
             }
             self.pick_powerup = 0
 

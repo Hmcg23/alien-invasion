@@ -21,6 +21,6 @@ class Instructions:
         self.y = float(self.rect.y)
 
     def blitme(self):
-        """Draw the bullet on the screen."""
+        """Draw the image on the screen."""
         # Blit the instructions onto the screen at its current position
         self.screen.blit(self.image, self.rect)
