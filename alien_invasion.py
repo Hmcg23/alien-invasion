@@ -318,6 +318,7 @@ class AlienInvasion:
                 self.overlay.blink = False
          
 # ----SHIELDS---- #
+
     def _create_shield_wall(self):
         pass
         """Create the wall of shields."""
@@ -349,6 +350,7 @@ class AlienInvasion:
         self.shields.update()
 
 # ----ALIENS---- #
+
     def _create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row
@@ -446,7 +448,6 @@ class AlienInvasion:
             self._fire_alien_bullet(self.alien_bullets)
         
         self._do_powerup(4, 5000, self._check_alien_bullet_and_ship_collisions, self._invincible_ship_alien_bullet_collisions)
-
 
     def yellow_bullets_powerup(self):
         self._do_powerup(3, 10000, self._check_bullet_alien_collisions, self._check_yellow_bullet_alien_collisions)
@@ -564,7 +565,6 @@ class AlienInvasion:
         for alien in aliens_to_remove:
             self.aliens.remove(alien)
             
-    
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
         if self.stats.ships_left > 0:
