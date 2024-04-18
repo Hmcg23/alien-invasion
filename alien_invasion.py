@@ -9,6 +9,7 @@ import sounds
 from settings import Settings
 from game_stats import GameStats
 from scoreboard import Scoreboard
+from powerup_info_text import PowerupInfoText
 from button import Button
 from overlay import Overlay
 from ship import Ship
@@ -41,6 +42,7 @@ class AlienInvasion:
         # Create game statistics and scoreboard
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
+        self.pw_text = PowerupInfoText(self)
         
         # Create the player's ship, bullet group, and alien group
         self.ship = Ship(self)
@@ -84,16 +86,23 @@ class AlienInvasion:
         self.pick_powerup = 0
 
         self.powerup_states = {
-            1: {"activated": False, "start_time": None},
-            2: {"activated": False, "start_time": None},
-            3: {"activated": False, "start_time": None},
-            4: {"activated": False, "start_time": None},
-            5: {"activated": False, "start_time": None}
+            1: {"activated": False, "start_time": None, "text": "freeze"},
+            2: {"activated": False, "start_time": None, "text": "double shoot"},
+            3: {"activated": False, "start_time": None, "text": "invincible bullets"},
+            4: {"activated": False, "start_time": None, "text": "invincibility"},
+            5: {"activated": False, "start_time": None, "text": "shields"}
         }
 
         self.blink = False
 
         self.pause = False
+
+        # get current time
+        self.current_time = pygame.time.get_ticks()
+
+        # create the text variables
+        self.text_timer = 0
+        self.show_text = False
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -267,7 +276,7 @@ class AlienInvasion:
 
             # Reset the timer for the next powerup
             self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(5000, 10000) # 7000, 10000
+            self.next_powerup_time = random.randint(1000, 1100) # 7000, 10000
 
     def _update_powerup(self):
         self.powerups.update()
@@ -278,15 +287,21 @@ class AlienInvasion:
         
         self._check_powerup_collisions()
     
-    def _check_powerup_collisions(self):
+    def _check_powerup_collisions(self ):
         for powerup in self.powerups.copy():
 
             if pygame.sprite.spritecollideany(self.ship, self.powerups):
                 sounds.power_up.set_volume(0.5)
                 sounds.power_up.play()
                 self.pick_powerup = random.randint(1, 5)
+
                 if self.pick_powerup == 5:
                     self._create_shield_wall()
+                
+                                # get the start time for the text
+                self.show_text = True
+                self.text_timer = pygame.time.get_ticks()
+                self.pw_text.prep_text(self.powerup_states[self.pick_powerup]["text"])
                 # Delete the powerup if collided
                 self.powerups.remove(powerup)
 
@@ -319,12 +334,24 @@ class AlienInvasion:
                 self.overlay.transparency = 0
                 self.overlay.increasing = True
                 self.overlay.blink = False
-                self.remove_shields()
-         
+                if powerup_state["text"] == "shields":
+                    self.remove_shields()
+
+# ----TEXT---- #
+
+    def _show_text(self):
+        if self.show_text:
+            self.current_time = pygame.time.get_ticks()
+        if self.current_time - self.text_timer < 2000:
+            self.pw_text.show_text()
+        else:
+            self.show_text = False
+
 # ----SHIELDS---- #
 
     def _create_shield_wall(self):
         """Create the wall of shields."""
+        self.shields.empty()
         # Create a shield and find the number of shields in a row
         shield = Shield(self)
         shield_width, shield_height = shield.rect.size
@@ -636,6 +663,10 @@ class AlienInvasion:
         
         # Draw score info
         self.sb.show_score()
+
+        # text functions
+        self._show_text()
+
         if not self.game_active:
             # Draw overlay and buttons if game is inactive
             self.overlay.draw_overlay(self.screen)
