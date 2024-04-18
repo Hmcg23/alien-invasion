@@ -675,6 +675,7 @@ class AlienInvasion:
             self.pick_powerup = 0
 
             self.settings.initialize_dynamic_settings(0.3, 10.0, 1.0, 2)
+            self.remove_shields()
 
 # ----SCREEN---- #
 
