@@ -19,6 +19,7 @@ from alien import Alien
 from shield import Shield
 from background import Background
 from powerup import Powerup
+from instructions import Instructions
 
 class AlienInvasion:
     def __init__(self):
@@ -51,7 +52,7 @@ class AlienInvasion:
         self.alien_bullets = pygame.sprite.Group()
         self.powerups = pygame.sprite.Group()
 
-        # test - shields
+        # Shields
         self.shields = pygame.sprite.Group()
 
         # Create background images and add the background
@@ -59,12 +60,28 @@ class AlienInvasion:
         self.background = Background(self)
         self.background_images.add(self.background)
 
+        # Create Instructions screen
+        self.instructions = Instructions(self)
+
         self.game_active = False
 
         # Create play button and set its color and text
         self.play_button = Button(self, "Play", 500, 360)
         self.play_button.text_color = (0, 255, 255)
         self.play_button._prep_msg("Play")
+
+        # create instructions button
+        self.instructions_button = Button(self, "?", 580, 510, 50)
+        self.instructions_button.text_color = (0, 255, 255)
+        self.instructions_button._prep_msg("?")
+
+        # display instructions variable
+        self.display_instructions = False
+
+        # create "go back" button
+        self.backwards_button = Button(self, "Go Back", 20, 750)
+        self.backwards_button.text_color = (0, 200, 200)
+        self.backwards_button._prep_msg("Go Back")
 
         # Create difficulty buttons
         self.easy_button = Button(self, "Easy", 250, 435)
@@ -142,8 +159,14 @@ class AlienInvasion:
             self._close_game()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
-            self._check_play_button(mouse_pos)
-            self._check_difficulty_buttons(mouse_pos)
+
+            self._check_instructions_button(mouse_pos)
+            self._check_backwards_button(mouse_pos)
+
+            if self.display_instructions == False:
+                self._check_play_button(mouse_pos)
+                self._check_difficulty_buttons(mouse_pos)
+
         elif event.type == pygame.KEYDOWN:
             self._check_keydown_events(event)
         elif event.type == pygame.KEYUP:
@@ -185,6 +208,18 @@ class AlienInvasion:
 
 # ----BUTTONS---- #
     
+    def _check_instructions_button(self, mouse_pos):
+        instructions_button_clicked = self.instructions_button.rect.collidepoint(mouse_pos)
+        if not self.game_active:
+            if instructions_button_clicked:
+                self.display_instructions = True
+
+    def _check_backwards_button(self, mouse_pos):
+        backwards_button_clicked = self.backwards_button.rect.collidepoint(mouse_pos)
+        if not self.game_active:
+            if backwards_button_clicked:
+                self.display_instructions = False
+                
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play."""
         # Check if play button is clicked
@@ -276,7 +311,7 @@ class AlienInvasion:
 
             # Reset the timer for the next powerup
             self.last_powerup_time = current_time
-            self.next_powerup_time = random.randint(1000, 1100) # 7000, 10000
+            self.next_powerup_time = random.randint(7000, 10000) # 7000, 10000
 
     def _update_powerup(self):
         self.powerups.update()
@@ -667,14 +702,20 @@ class AlienInvasion:
         # text functions
         self._show_text()
 
-        if not self.game_active:
-            # Draw overlay and buttons if game is inactive
-            self.overlay.draw_overlay(self.screen)
 
-            self.play_button.draw_button(self.screen, (255,20,147))
-            self.easy_button.draw_button(self.screen, (0, 255, 255))
-            self.medium_button.draw_button(self.screen, (0, 255, 255))
-            self.hard_button.draw_button(self.screen, (0, 255, 255))
+        if not self.game_active:
+            if self.display_instructions:
+                self.instructions.blitme()
+                self.backwards_button.draw_button(self.screen, (0, 255, 255))
+            elif self.display_instructions == False:
+                # Draw overlay and buttons if game is inactive
+                self.overlay.draw_overlay(self.screen)
+
+                self.play_button.draw_button(self.screen, (255,20,147))
+                self.instructions_button.draw_button(self.screen, (255,20,147))
+                self.easy_button.draw_button(self.screen, (0, 255, 255))
+                self.medium_button.draw_button(self.screen, (0, 255, 255))
+                self.hard_button.draw_button(self.screen, (0, 255, 255))
             
         # Display the most recent screen
         pygame.display.flip()
